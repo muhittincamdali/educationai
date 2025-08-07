@@ -2,17 +2,9 @@
 
 [![Swift](https://img.shields.io/badge/Swift-5.9-orange.svg)](https://swift.org)
 [![iOS](https://img.shields.io/badge/iOS-16.0+-blue.svg)](https://developer.apple.com/ios/)
-[![GitHub stars](https://img.shields.io/github/stars/muhittincamdali/educationai?style=flat-square&logo=github)](https://github.com/muhittincamdali/educationai)
-[![GitHub forks](https://img.shields.io/github/forks/muhittincamdali/educationai?style=flat-square&logo=github)](https://github.com/muhittincamdali/educationai)
-[![GitHub issues](https://img.shields.io/github/issues/muhittincamdali/educationai?style=flat-square&logo=github)](https://github.com/muhittincamdali/educationai/issues)
-[![GitHub pull requests](https://img.shields.io/github/issues-pr/muhittincamdali/educationai?style=flat-square&logo=github)](https://github.com/muhittincamdali/educationai/pulls)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-iOS-lightgrey.svg)](https://developer.apple.com/ios/)
 
-[![GitHub stats](https://github-readme-stats.vercel.app/api?username=muhittincamdali&show_icons=true&theme=radical)](https://github.com/muhittincamdali)
-[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=muhittincamdali&layout=compact&theme=radical)](https://github.com/muhittincamdali)
-[![Profile Views](https://komarev.com/ghpvc/?username=muhittincamdali&color=brightgreen)](https://github.com/muhittincamdali)
-[![GitHub Streak](https://streak-stats.demolab.com/?user=muhittincamdali&theme=radical)](https://github.com/muhittincamdali)
 
 ## Overview
 
@@ -168,9 +160,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Support
 
-- **Issues**: [GitHub Issues](https://github.com/muhittincamdali/educationai/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/muhittincamdali/educationai/discussions)
-- **Documentation**: [Wiki](https://github.com/muhittincamdali/educationai/wiki)
 
 ## Roadmap
 
