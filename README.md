@@ -1,6 +1,9 @@
 # EducationAI
 
 [![Swift](https://img.shields.io/badge/Swift-5.9-orange.svg)](https://swift.org)
+# EducationAI
+
+[![Swift](https://img.shields.io/badge/Swift-5.9-orange.svg)](https://swift.org)
 [![iOS](https://img.shields.io/badge/iOS-16.0+-blue.svg)](https://developer.apple.com/ios/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-iOS-lightgrey.svg)](https://developer.apple.com/ios/)
@@ -159,9 +162,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Support
 
-- **Issues**: [GitHub Issues](https://github.com/your-org/educationai/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/your-org/educationai/discussions)
-- **Documentation**: [Wiki](https://github.com/your-org/educationai/wiki)
+- **Issues**: [GitHub Issues](https://github.com/muhittincamdali/educationai/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/muhittincamdali/educationai/discussions)
+- **Documentation**: [Wiki](https://github.com/muhittincamdali/educationai/wiki)
 
 ## Roadmap
 
