@@ -27,9 +27,11 @@ let package = Package(
                 .product(name: "RxCocoa", package: "RxSwift"),
                 "SnapKit",
                 "SDWebImage"
-            ]),
+            ],
+            path: "Sources"),
         .testTarget(
             name: "EducationAITests",
-            dependencies: ["EducationAI"]),
+            dependencies: ["EducationAI"],
+            path: "Tests"),
     ]
-) 
+)
