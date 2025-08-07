@@ -9,6 +9,11 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-iOS-lightgrey.svg)](https://developer.apple.com/ios/)
 
+[![GitHub stats](https://github-readme-stats.vercel.app/api?username=muhittincamdali&show_icons=true&theme=radical)](https://github.com/muhittincamdali)
+[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=muhittincamdali&layout=compact&theme=radical)](https://github.com/muhittincamdali)
+[![Profile Views](https://komarev.com/ghpvc/?username=muhittincamdali&color=brightgreen)](https://github.com/muhittincamdali)
+[![GitHub Streak](https://streak-stats.demolab.com/?user=muhittincamdali&theme=radical)](https://github.com/muhittincamdali)
+
 ## Overview
 
 EducationAI is a revolutionary iOS application that leverages artificial intelligence to provide personalized learning experiences. Built with Clean Architecture principles and modern Swift technologies, it offers adaptive learning paths, real-time progress tracking, and intelligent content recommendations.
