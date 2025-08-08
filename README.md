@@ -9,10 +9,6 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-iOS-lightgrey.svg)](https://developer.apple.com/ios/)
 
-[![GitHub stats](https://github-readme-stats.vercel.app/api?username=muhittincamdali&show_icons=true&theme=radical)](https://github.com/muhittincamdali)
-[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=muhittincamdali&layout=compact&theme=radical)](https://github.com/muhittincamdali)
-[![Profile Views](https://komarev.com/ghpvc/?username=muhittincamdali&color=brightgreen)](https://github.com/muhittincamdali)
-[![GitHub Streak](https://streak-stats.demolab.com/?user=muhittincamdali&theme=radical)](https://github.com/muhittincamdali)
 
 ## Overview
 
@@ -54,15 +50,13 @@ EducationAI/
 │   │   ├── Domain/          # Business logic and entities
 │   │   │   ├── Entities/    # Core data models
 │   │   │   ├── UseCases/    # Business rules
-│   │   │   └── Repositories/ # Data access interfaces
+│   │   │   └── Repositories/ # Data access interfaces (conceptual)
 │   │   └── Infrastructure/  # External dependencies
 │   │       ├── AI/          # AI/ML services
 │   │       ├── Security/    # Security implementations
 │   │       └── Services/    # Network and data services
-│   └── App/                 # Application entry point
 ├── Tests/                   # Comprehensive test suite
 ├── Documentation/           # API documentation
-└── Resources/              # Assets and configurations
 ```
 
 ### Key Technologies
@@ -81,21 +75,15 @@ EducationAI/
 - Swift 5.9+
 
 ### Swift Package Manager
-```swift
-dependencies: [
-    .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.8.1"),
-    .package(url: "https://github.com/ReactiveX/RxSwift.git", from: "6.6.0"),
-    .package(url: "https://github.com/SnapKit/SnapKit.git", from: "5.6.0"),
-    .package(url: "https://github.com/airbnb/lottie-ios.git", from: "4.3.3"),
-    .package(url: "https://github.com/SDWebImage/SDWebImage.git", from: "5.18.10")
-]
-```
+Add EducationAI to your app via SPM:
+1. In Xcode, go to File > Add Package Dependencies
+2. Enter your repository URL
+3. Select the latest version and add the package
 
 ### Manual Installation
+Prefer SPM. If you need local path integration:
 1. Clone the repository
-2. Open `EducationAI.xcodeproj` in Xcode
-3. Select your target device
-4. Build and run the project
+2. Add the package to your app target as a local package dependency
 
 ## Usage
 
@@ -139,8 +127,8 @@ swift test
 ```
 
 ### Test Coverage
-- **Unit Tests**: 95%+ coverage
-- **Integration Tests**: Core functionality
+- **Unit Tests**: High coverage across core modules
+- **Integration Tests**: Core functionality flows
 - **UI Tests**: Critical user flows
 - **Performance Tests**: Memory and CPU optimization
 
@@ -168,9 +156,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Support
 
-- **Issues**: [GitHub Issues](https://github.com/muhittincamdali/educationai/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/muhittincamdali/educationai/discussions)
-- **Documentation**: [Wiki](https://github.com/muhittincamdali/educationai/wiki)
+ - **Issues**: [GitHub Issues](https://github.com/muhittincamdali/educationai/issues)
+ - **Documentation**: [Wiki](https://github.com/muhittincamdali/educationai/wiki)
 
 ## Roadmap
 
