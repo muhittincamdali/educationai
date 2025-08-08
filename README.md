@@ -2,12 +2,9 @@
 
 [![Swift](https://img.shields.io/badge/Swift-5.9-orange.svg)](https://swift.org)
 [![iOS](https://img.shields.io/badge/iOS-16.0+-blue.svg)](https://developer.apple.com/ios/)
-[![GitHub stars](https://img.shields.io/github/stars/muhittincamdali/educationai?style=flat-square&logo=github)](https://github.com/muhittincamdali/educationai)
-[![GitHub forks](https://img.shields.io/github/forks/muhittincamdali/educationai?style=flat-square&logo=github)](https://github.com/muhittincamdali/educationai)
-[![GitHub issues](https://img.shields.io/github/issues/muhittincamdali/educationai?style=flat-square&logo=github)](https://github.com/muhittincamdali/educationai/issues)
-[![GitHub pull requests](https://img.shields.io/github/issues-pr/muhittincamdali/educationai?style=flat-square&logo=github)](https://github.com/muhittincamdali/educationai/pulls)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-iOS-lightgrey.svg)](https://developer.apple.com/ios/)
+
 
 
 ## Overview
