@@ -131,7 +131,7 @@ final class EducationAIUnitTests: XCTestCase {
             timestamp: Date()
         )
         
-        try await mockAIService.adjustDifficulty(for: module, based: on: result)
+        try await mockAIService.adjustDifficulty(for: module, basedOn: result)
         
         XCTAssertTrue(mockAIService.difficultyAdjusted)
         XCTAssertEqual(mockAIService.adjustedDifficulty, .beginner)
