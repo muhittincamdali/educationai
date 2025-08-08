@@ -743,10 +743,7 @@ class MockIntegrationManager: IntegrationManager {
         try await Task.sleep(nanoseconds: 50_000_000) // 0.05 seconds
     }
     
-    func simulatePaymentProcessing() async throws {
-        // Simulate payment processing workflow
-        try await Task.sleep(nanoseconds: 300_000_000) // 0.3 seconds
-    }
+    // Payment simulation intentionally omitted
     
     func simulatePushNotifications() async throws {
         // Simulate push notifications workflow
