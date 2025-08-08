@@ -50,9 +50,9 @@ swift test
 ```
 
 ### 2. Xcode Setup
-1. Open `EducationAI.xcodeproj`
-2. Select your target device
-3. Build and run the project
+1. Open `Package.swift` in Xcode (File > Open... > select `Package.swift`)
+2. Select your target device / scheme
+3. Build and run tests
 
 ### 3. Pre-commit Hooks
 ```bash

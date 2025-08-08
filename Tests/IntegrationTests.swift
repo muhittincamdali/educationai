@@ -215,20 +215,7 @@ final class EducationAIIntegrationTests: XCTestCase {
         XCTAssertTrue((integrationManager as! MockIntegrationManager).customAuthConfigured)
     }
     
-    func testCustomPaymentIntegration() async throws {
-        let customPaymentConfig = CustomPaymentConfiguration(
-            enableStripe: true,
-            enablePayPal: true,
-            enableApplePay: true,
-            enableGooglePay: true,
-            enableInAppPurchases: true
-        )
-        
-        try await integrationManager.configureCustomPayment(with: customPaymentConfig)
-        try await integrationManager.testCustomPayment()
-        
-        XCTAssertTrue((integrationManager as! MockIntegrationManager).customPaymentConfigured)
-    }
+    // Payment-related integration tests removed intentionally
     
     func testCustomPushIntegration() async throws {
         let customPushConfig = CustomPushConfiguration(
@@ -351,14 +338,7 @@ final class EducationAIIntegrationTests: XCTestCase {
         )
         try await integrationManager.configureCustomAuthentication(with: customAuthConfig)
         
-        let customPaymentConfig = CustomPaymentConfiguration(
-            enableStripe: true,
-            enablePayPal: true,
-            enableApplePay: true,
-            enableGooglePay: true,
-            enableInAppPurchases: true
-        )
-        try await integrationManager.configureCustomPayment(with: customPaymentConfig)
+        // Payment-related configuration omitted
         
         let customPushConfig = CustomPushConfiguration(
             enableRemoteNotifications: true,
@@ -386,8 +366,7 @@ final class EducationAIIntegrationTests: XCTestCase {
         // 4. Analytics tracking
         try await mockManager.simulateAnalyticsTracking()
         
-        // 5. Payment processing
-        try await mockManager.simulatePaymentProcessing()
+        // 5. Payment processing intentionally omitted
         
         // 6. Push notifications
         try await mockManager.simulatePushNotifications()
@@ -409,7 +388,7 @@ final class EducationAIIntegrationTests: XCTestCase {
         XCTAssertTrue(mockManager.sdWebImageConfigured)
         XCTAssertTrue(mockManager.customAnalyticsConfigured)
         XCTAssertTrue(mockManager.customAuthConfigured)
-        XCTAssertTrue(mockManager.customPaymentConfigured)
+        // Payment configuration intentionally omitted
         XCTAssertTrue(mockManager.customPushConfigured)
         
         // Verify all tests passed
@@ -504,7 +483,7 @@ class MockIntegrationManager: IntegrationManager {
     var sdWebImageConfigured = false
     var customAnalyticsConfigured = false
     var customAuthConfigured = false
-    var customPaymentConfigured = false
+    // Payment-related flags removed
     var customPushConfigured = false
     
     var workflowCompleted = false
@@ -516,7 +495,7 @@ class MockIntegrationManager: IntegrationManager {
         return firebaseConfigured && coreDataConfigured && cloudKitConfigured &&
                alamofireConfigured && rxSwiftConfigured && snapKitConfigured &&
                lottieConfigured && sdWebImageConfigured && customAnalyticsConfigured &&
-               customAuthConfigured && customPaymentConfigured && customPushConfigured
+               customAuthConfigured && customPushConfigured
     }
     
     // Firebase
@@ -714,12 +693,7 @@ class MockIntegrationManager: IntegrationManager {
         customAuthConfigured = true
     }
     
-    func configureCustomPayment(with config: CustomPaymentConfiguration) async throws {
-        if shouldSimulateErrors {
-            throw IntegrationError.configurationFailed
-        }
-        customPaymentConfigured = true
-    }
+    // Payment-related configuration intentionally omitted
     
     func configureCustomPush(with config: CustomPushConfiguration) async throws {
         if shouldSimulateErrors {
@@ -740,11 +714,7 @@ class MockIntegrationManager: IntegrationManager {
         }
     }
     
-    func testCustomPayment() async throws {
-        if shouldSimulateErrors {
-            throw IntegrationError.testFailed
-        }
-    }
+    // Payment-related test intentionally omitted
     
     func testCustomPush() async throws {
         if shouldSimulateErrors {
