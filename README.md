@@ -1,4 +1,5 @@
 # EducationAI
+[![CI](https://github.com/muhittincamdali/educationai/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/muhittincamdali/educationai/actions/workflows/ci.yml)
 
 <!-- TOC START -->
 ## Table of Contents
