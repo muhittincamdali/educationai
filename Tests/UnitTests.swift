@@ -1,65 +1,6 @@
 import XCTest
 @testable import EducationAI
 
-// MARK: - Test-local supporting types to ensure compilation
-struct AIConfiguration { }
-
-enum Difficulty { case beginner, intermediate, advanced, expert }
-enum LearningStyle { case visual, auditory, kinesthetic, reading }
-enum QuestionType { case multipleChoice, trueFalse, shortAnswer, essay }
-
-struct LearningScenario {
-    let subject: String
-    let difficulty: Difficulty
-    let learningStyle: LearningStyle
-    let timeLimit: TimeInterval
-    let adaptiveMode: Bool
-}
-
-struct LearningModule {
-    let id: String
-    let title: String
-    let content: [String]
-    let difficulty: Difficulty
-    let estimatedTime: TimeInterval
-}
-
-struct LearningPath {
-    let id: String
-    let modules: [LearningModule]
-    let estimatedDuration: TimeInterval
-    let difficulty: Difficulty
-}
-
-struct Question {
-    let id: String
-    let text: String
-    let type: QuestionType
-    let difficulty: Double
-}
-
-struct AnalyticsReport {
-    let type: ReportType
-    let currentScore: Double
-    let trend: Trend
-    let recommendations: [String]
-}
-
-enum ReportType { case performance, engagement, progress, predictive }
-enum Trend { case improving, declining, stable }
-
-struct ComplianceStatus { let isCompliant: Bool; let issues: [String] }
-enum SecuritySeverity { case info, warning, error, critical }
-struct SecurityConfiguration { }
-
-struct LearningProgress {
-    let userId: String
-    let moduleId: String
-    let performance: Double
-    let completionDate: Date
-    let timeSpent: TimeInterval
-}
-
 final class EducationAIUnitTests: XCTestCase {
     
     var educationAI: EducationAI!
