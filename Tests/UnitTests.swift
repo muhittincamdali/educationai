@@ -60,52 +60,6 @@ struct LearningProgress {
     let timeSpent: TimeInterval
 }
 
-struct ModuleResult {
-    let moduleId: String
-    let performance: Double
-    let duration: TimeInterval
-    let responses: [String]
-    let timestamp: Date
-}
-
-struct AnalyticsConfiguration { }
-
-protocol AIService {
-    func configure(with config: AIConfiguration) async throws
-    func generatePersonalizedLearningPath(for userId: String, scenario: LearningScenario) async throws -> LearningPath
-    func updateModel(with result: ModuleResult) async throws
-    func adjustDifficulty(for module: LearningModule, basedOn result: ModuleResult) async throws
-    func generateQuestions(for module: LearningModule, count: Int, difficulty: Difficulty) async throws -> [Question]
-}
-
-protocol AnalyticsService {
-    func configure(with config: AnalyticsConfiguration) async throws
-    func startRealTimeMonitoring() async throws -> String
-    func stopRealTimeMonitoring(session: String) async throws
-    func startTracking(module: LearningModule)
-    func stopTracking(module: LearningModule)
-    func recordActivity(type: String, duration: TimeInterval, timestamp: Date) async throws
-    func updateProgress(_ progress: LearningProgress) async throws
-    func generatePerformanceReport() async throws -> AnalyticsReport
-    func generateEngagementReport() async throws -> AnalyticsReport
-    func generateProgressReport() async throws -> AnalyticsReport
-    func generatePredictiveReport() async throws -> AnalyticsReport
-}
-
-protocol SecurityManager {
-    func configure(with config: SecurityConfiguration) async throws
-    func authenticateWithBiometrics() async throws -> Bool
-    func encryptData(_ data: Data) async throws -> Data
-    func checkPrivacyCompliance() async throws -> ComplianceStatus
-    func logSecurityEvent(event: String, severity: SecuritySeverity, details: String) async throws
-}
-
-extension EducationAI {
-    func configure(with _: EducationAIConfiguration) {
-        configure()
-    }
-}
-
 final class EducationAIUnitTests: XCTestCase {
     
     var educationAI: EducationAI!
@@ -681,7 +635,7 @@ class MockSecurityManager: SecurityManager {
     
     func encryptData(_ data: Data) async throws -> Data {
         encryptionCalled = true
-        return Data(data.reversed())
+        return data.reversed()
     }
     
     func checkPrivacyCompliance() async throws -> ComplianceStatus {
