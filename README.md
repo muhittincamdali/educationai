@@ -1,40 +1,6 @@
 # EducationAI
 [![CI](https://github.com/muhittincamdali/educationai/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/muhittincamdali/educationai/actions/workflows/ci.yml)
 
-<!-- TOC START -->
-## Table of Contents
-- [EducationAI](#educationai)
-- [Overview](#overview)
-- [Features](#features)
-  - [🧠 AI-Powered Learning](#-ai-powered-learning)
-  - [📚 Educational Content](#-educational-content)
-  - [🔒 Security & Privacy](#-security-privacy)
-  - [🎨 Modern UI/UX](#-modern-uiux)
-- [Architecture](#architecture)
-  - [Clean Architecture](#clean-architecture)
-  - [Key Technologies](#key-technologies)
-- [Installation](#installation)
-  - [Requirements](#requirements)
-  - [Swift Package Manager](#swift-package-manager)
-  - [Manual Installation](#manual-installation)
-- [Usage](#usage)
-  - [Basic Setup](#basic-setup)
-  - [Authentication](#authentication)
-  - [AI Services](#ai-services)
-- [Testing](#testing)
-  - [Unit Tests](#unit-tests)
-  - [Test Coverage](#test-coverage)
-- [Contributing](#contributing)
-  - [Development Setup](#development-setup)
-- [Documentation](#documentation)
-- [License](#license)
-- [Support](#support)
-- [Roadmap](#roadmap)
-  - [Version 1.0 (Current)](#version-10-current)
-  - [Version 1.1 (Q2 2024)](#version-11-q2-2024)
-  - [Version 2.0 (Q4 2024)](#version-20-q4-2024)
-- [Acknowledgments](#acknowledgments)
-<!-- TOC END -->
 
 
 [![Swift](https://img.shields.io/badge/Swift-5.9-orange.svg)](https://swift.org)
