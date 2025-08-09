@@ -101,29 +101,9 @@ protocol SecurityManager {
 }
 
 extension EducationAI {
-    private struct _EducationAITestState {
-        static var isConfigured: Bool = false
-        static var aiEnabled: Bool = false
-        static var analyticsEnabled: Bool = false
-        static var securityEnabled: Bool = false
-        static var offlineModeEnabled: Bool = false
-    }
-
-    func configure(with config: EducationAIConfiguration) {
-        _EducationAITestState.isConfigured = true
-        _EducationAITestState.aiEnabled = config.enableAI
-        _EducationAITestState.analyticsEnabled = config.enableAnalytics
-        _EducationAITestState.securityEnabled = config.enableSecurity
-        _EducationAITestState.offlineModeEnabled = config.enableOfflineMode
+    func configure(with _: EducationAIConfiguration) {
         configure()
     }
-
-    var version: String { "1.0.0" }
-    var isConfigured: Bool { _EducationAITestState.isConfigured }
-    var aiEnabled: Bool { _EducationAITestState.aiEnabled }
-    var analyticsEnabled: Bool { _EducationAITestState.analyticsEnabled }
-    var securityEnabled: Bool { _EducationAITestState.securityEnabled }
-    var offlineModeEnabled: Bool { _EducationAITestState.offlineModeEnabled }
 }
 
 final class EducationAIUnitTests: XCTestCase {
@@ -533,7 +513,7 @@ final class EducationAIUnitTests: XCTestCase {
 
 // Align with example protocol signatures used in Examples/AdvancedExample.swift
 class MockAIService: AIService {
-    var isConfigured = true
+    var isConfigured = false
     var modelUpdated = false
     var difficultyAdjusted = false
     var lastPerformance: Double = 0.0
@@ -603,7 +583,7 @@ class MockAIService: AIService {
 }
 
 class MockAnalyticsService: AnalyticsService {
-    var isConfigured = true
+    var isConfigured = false
     var monitoringActive = false
     var activityRecorded = false
     var progressUpdated = false
@@ -681,7 +661,7 @@ class MockAnalyticsService: AnalyticsService {
 }
 
 class MockSecurityManager: SecurityManager {
-    var isConfigured = true
+    var isConfigured = false
     var biometricAuthCalled = false
     var encryptionCalled = false
     var complianceChecked = false
