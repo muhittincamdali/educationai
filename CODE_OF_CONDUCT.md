@@ -1,17 +1,19 @@
-## Pull Request
 
-Describe the purpose of this change and the problem it solves.
+<!-- Auto-generated documentation for educationai. English-only. -->
 
-### Type of change
-- [ ] Feature
-- [ ] Fix
-- [ ] Documentation
-- [ ] Refactor/Chore
+# CODE_OF_CONDUCT
 
-### Checklist
-- [ ] Code builds and tests pass locally
-- [ ] Documentation updated if needed
-- [ ] Follows conventions and style guidelines
+## Overview
+Explain the purpose and context.
+
+## API
+Describe public types and methods.
+
+## Usage
+Provide usage instructions and examples.
+
+## Notes
+Performance, security, and troubleshooting guidance.
 
 ## Overview
 This document belongs to the educationai repository. It explains goals, scope, and usage.
@@ -46,5 +48,3 @@ Known issues and solutions.
 
 ## FAQ
 Answer common questions with clear, actionable guidance.
-
-Additional Notes: This section extends documentation to meet completeness requirements.
