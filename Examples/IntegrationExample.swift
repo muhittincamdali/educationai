@@ -275,7 +275,8 @@ class EducationAIIntegrationExample {
         // Setup custom authentication
         try await setupCustomAuthentication()
         
-        // Payment-related integrations are intentionally omitted
+        // Setup custom payment processing
+        try await setupCustomPaymentProcessing()
         
         // Setup custom push notifications
         try await setupCustomPushNotifications()
@@ -307,7 +308,17 @@ class EducationAIIntegrationExample {
         try await integrationManager.configureCustomAuthentication(with: customAuthConfig)
     }
     
-    // Payment-related integration intentionally removed to avoid money-related topics
+    private func setupCustomPaymentProcessing() async throws {
+        let customPaymentConfig = CustomPaymentConfiguration(
+            enableStripe: true,
+            enablePayPal: true,
+            enableApplePay: true,
+            enableGooglePay: true,
+            enableInAppPurchases: true
+        )
+        
+        try await integrationManager.configureCustomPayment(with: customPaymentConfig)
+    }
     
     private func setupCustomPushNotifications() async throws {
         let customPushConfig = CustomPushConfiguration(
@@ -398,7 +409,13 @@ struct CustomAuthenticationConfiguration {
     let authProviders: [String]
 }
 
-// Payment configuration intentionally omitted to avoid money-related topics
+struct CustomPaymentConfiguration {
+    let enableStripe: Bool
+    let enablePayPal: Bool
+    let enableApplePay: Bool
+    let enableGooglePay: Bool
+    let enableInAppPurchases: Bool
+}
 
 struct CustomPushConfiguration {
     let enableRemoteNotifications: Bool
@@ -474,9 +491,11 @@ protocol IntegrationManager {
     // Custom Integrations
     func configureCustomAnalytics(with config: CustomAnalyticsConfiguration) async throws
     func configureCustomAuthentication(with config: CustomAuthenticationConfiguration) async throws
+    func configureCustomPayment(with config: CustomPaymentConfiguration) async throws
     func configureCustomPush(with config: CustomPushConfiguration) async throws
     func testCustomAnalytics() async throws
     func testCustomAuthentication() async throws
+    func testCustomPayment() async throws
     func testCustomPush() async throws
 }
 

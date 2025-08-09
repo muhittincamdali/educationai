@@ -26,14 +26,24 @@ Welcome to EducationAI! This guide will help you get up and running with the fra
 
 Add EducationAI to your project using Swift Package Manager:
 
-1. In Xcode, go to **File > Add Package Dependency**
+1. In Xcode, go to **File > Add Package Dependencies**
 2. Enter the repository URL: `https://github.com/muhittincamdali/educationai`
 3. Select the latest version
 4. Click **Add Package**
 
 ### Manual Installation
 
-Prefer Swift Package Manager. If you must use a local path package, clone the repository and add it as a local package dependency in your Xcode project settings.
+1. Clone the repository:
+```bash
+git clone https://github.com/muhittincamdali/educationai.git
+```
+
+2. Add the package to your project:
+```swift
+dependencies: [
+    .package(path: "path/to/educationai")
+]
+```
 
 ## Basic Setup
 
