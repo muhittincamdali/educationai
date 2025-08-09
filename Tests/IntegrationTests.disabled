@@ -1,53 +1,6 @@
 import XCTest
 @testable import EducationAI
 
-// Test-local protocol to ensure compilation independent of example sources
-protocol IntegrationManager {
-    // Firebase
-    func configureFirebase(with config: FirebaseConfiguration) async throws
-    func registerFirebaseEvent(_ event: String) async throws
-    func setupRemoteConfig(key: String, defaultValue: String) async throws
-    func testFirebaseAnalytics() async throws
-    func testFirebaseRemoteConfig() async throws
-    func testFirebaseCrashlytics() async throws
-
-    // Core Data
-    func configureCoreData(with config: CoreDataConfiguration) async throws
-    func createCoreDataEntity(_ entity: CoreDataEntity) async throws
-    func createCoreDataRelationship(_ relationship: CoreDataRelationship) async throws
-    func testCoreDataEntities() async throws
-    func testCoreDataRelationships() async throws
-    func testCoreDataBatchOperations() async throws
-
-    // CloudKit
-    func configureCloudKit(with config: CloudKitConfiguration) async throws
-    func createCloudKitSubscription(_ subscription: CloudKitSubscription) async throws
-    func configureCloudKitSharing(with config: CloudKitSharingConfiguration) async throws
-    func testCloudKitRecords() async throws
-    func testCloudKitSubscriptions() async throws
-    func testCloudKitSharing() async throws
-
-    // Third-party Services
-    func configureAlamofire(with config: AlamofireConfiguration) async throws
-    func configureRxSwift(with config: RxSwiftConfiguration) async throws
-    func configureSnapKit(with config: SnapKitConfiguration) async throws
-    func configureLottie(with config: LottieConfiguration) async throws
-    func configureSDWebImage(with config: SDWebImageConfiguration) async throws
-    func testAlamofire() async throws
-    func testRxSwift() async throws
-    func testSnapKit() async throws
-    func testLottie() async throws
-    func testSDWebImage() async throws
-
-    // Custom Integrations
-    func configureCustomAnalytics(with config: CustomAnalyticsConfiguration) async throws
-    func configureCustomAuthentication(with config: CustomAuthenticationConfiguration) async throws
-    func configureCustomPush(with config: CustomPushConfiguration) async throws
-    func testCustomAnalytics() async throws
-    func testCustomAuthentication() async throws
-    func testCustomPush() async throws
-}
-
 final class EducationAIIntegrationTests: XCTestCase {
     
     var educationAI: EducationAI!
