@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
     name: "EducationAI",
     platforms: [
-        .iOS(.v16),
+        .iOS(.v15),
         .macOS(.v10_15)
     ],
     products: [

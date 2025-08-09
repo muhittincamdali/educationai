@@ -136,7 +136,7 @@ class AdvancedEducationAIExample {
             // Adaptive difficulty adjustment
             if result.performance < 0.7 {
                 print("⚠️ Performance below threshold, adjusting difficulty...")
-                try await aiService.adjustDifficulty(for: module, basedOn: result)
+                try await aiService.adjustDifficulty(for: module, based: on: result)
             }
             
             // Real-time progress update
@@ -565,7 +565,7 @@ protocol AIService {
     func configure(with config: AIConfiguration) async throws
     func generatePersonalizedLearningPath(for userId: String, scenario: LearningScenario) async throws -> LearningPath
     func updateModel(with result: ModuleResult) async throws
-    func adjustDifficulty(for module: LearningModule, basedOn result: ModuleResult) async throws
+    func adjustDifficulty(for module: LearningModule, based on result: ModuleResult) async throws
     func generateQuestions(for module: LearningModule, count: Int, difficulty: Difficulty) async throws -> [Question]
 }
 

@@ -406,7 +406,6 @@ final class EducationAIUnitTests: XCTestCase {
 
 // MARK: - Mock Services
 
-// Align with example protocol signatures used in Examples/AdvancedExample.swift
 class MockAIService: AIService {
     var isConfigured = false
     var modelUpdated = false
@@ -452,7 +451,7 @@ class MockAIService: AIService {
         lastPerformance = result.performance
     }
     
-    func adjustDifficulty(for module: LearningModule, basedOn result: ModuleResult) async throws {
+    func adjustDifficulty(for module: LearningModule, based on result: ModuleResult) async throws {
         difficultyAdjusted = true
         if result.performance < 0.5 {
             adjustedDifficulty = .beginner
