@@ -1,5 +1,42 @@
 # Security Guidelines
 
+<!-- TOC START -->
+## Table of Contents
+- [Security Guidelines](#security-guidelines)
+- [Overview](#overview)
+- [Security Architecture](#security-architecture)
+  - [Multi-Layer Security Model](#multi-layer-security-model)
+- [Authentication & Authorization](#authentication-authorization)
+  - [Biometric Authentication](#biometric-authentication)
+  - [JWT Token Management](#jwt-token-management)
+- [Data Encryption](#data-encryption)
+  - [AES-256 Encryption](#aes-256-encryption)
+  - [Secure Storage](#secure-storage)
+- [Network Security](#network-security)
+  - [Certificate Pinning](#certificate-pinning)
+  - [HTTPS Enforcement](#https-enforcement)
+- [Privacy Compliance](#privacy-compliance)
+  - [GDPR Compliance](#gdpr-compliance)
+  - [COPPA Compliance](#coppa-compliance)
+- [Input Validation](#input-validation)
+  - [XSS Prevention](#xss-prevention)
+- [Security Testing](#security-testing)
+  - [Penetration Testing](#penetration-testing)
+- [Security Best Practices](#security-best-practices)
+  - [Code Security](#code-security)
+  - [Data Security](#data-security)
+  - [Authentication Security](#authentication-security)
+- [Incident Response](#incident-response)
+  - [Security Incident Handling](#security-incident-handling)
+- [Compliance Monitoring](#compliance-monitoring)
+  - [Security Compliance Dashboard](#security-compliance-dashboard)
+- [Security Checklist](#security-checklist)
+  - [Development Checklist](#development-checklist)
+  - [Deployment Checklist](#deployment-checklist)
+- [Conclusion](#conclusion)
+<!-- TOC END -->
+
+
 ## Overview
 
 EducationAI implements comprehensive security measures to protect user data and ensure privacy compliance. This document outlines our security architecture, best practices, and implementation details.

@@ -1,5 +1,39 @@
 # Performance Optimization
 
+<!-- TOC START -->
+## Table of Contents
+- [Performance Optimization](#performance-optimization)
+- [Overview](#overview)
+- [Performance Architecture](#performance-architecture)
+  - [Multi-Layer Performance Model](#multi-layer-performance-model)
+- [UI Performance Optimization](#ui-performance-optimization)
+  - [SwiftUI Performance](#swiftui-performance)
+  - [Animation Performance](#animation-performance)
+  - [Memory Management](#memory-management)
+- [Core Performance Optimization](#core-performance-optimization)
+  - [Algorithm Optimization](#algorithm-optimization)
+  - [Data Structure Efficiency](#data-structure-efficiency)
+  - [Caching Strategies](#caching-strategies)
+- [Background Processing](#background-processing)
+  - [Efficient Background Tasks](#efficient-background-tasks)
+- [Database Performance](#database-performance)
+  - [Core Data Optimization](#core-data-optimization)
+- [Network Performance](#network-performance)
+  - [Network Optimization](#network-optimization)
+- [Performance Monitoring](#performance-monitoring)
+  - [Real-time Performance Monitoring](#real-time-performance-monitoring)
+- [Memory Optimization](#memory-optimization)
+  - [Memory Usage Monitoring](#memory-usage-monitoring)
+- [Performance Best Practices](#performance-best-practices)
+  - [Development Guidelines](#development-guidelines)
+  - [Testing Performance](#testing-performance)
+- [Performance Checklist](#performance-checklist)
+  - [Development Checklist](#development-checklist)
+  - [Optimization Checklist](#optimization-checklist)
+- [Conclusion](#conclusion)
+<!-- TOC END -->
+
+
 ## Overview
 
 EducationAI is designed with performance as a core priority. This document outlines our performance optimization strategies, monitoring tools, and best practices for maintaining optimal app performance.

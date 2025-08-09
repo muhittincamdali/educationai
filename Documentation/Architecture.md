@@ -1,5 +1,40 @@
 # EducationAI Architecture Guide
 
+<!-- TOC START -->
+## Table of Contents
+- [EducationAI Architecture Guide](#educationai-architecture-guide)
+- [Overview](#overview)
+- [Table of Contents](#table-of-contents)
+- [Architecture Overview](#architecture-overview)
+- [Clean Architecture](#clean-architecture)
+  - [1. Domain Layer (Core Business Logic)](#1-domain-layer-core-business-logic)
+  - [2. Infrastructure Layer (External Dependencies)](#2-infrastructure-layer-external-dependencies)
+  - [3. Presentation Layer (UI)](#3-presentation-layer-ui)
+- [Domain Layer](#domain-layer)
+  - [Entities](#entities)
+  - [Use Cases](#use-cases)
+- [Infrastructure Layer](#infrastructure-layer)
+  - [AI Services](#ai-services)
+  - [Security Services](#security-services)
+- [Data Flow](#data-flow)
+  - [Request Flow](#request-flow)
+  - [Response Flow](#response-flow)
+  - [Example: Getting Recommendations](#example-getting-recommendations)
+- [Design Patterns](#design-patterns)
+  - [1. Dependency Injection](#1-dependency-injection)
+  - [2. Repository Pattern](#2-repository-pattern)
+  - [3. Observer Pattern](#3-observer-pattern)
+- [Testing Strategy](#testing-strategy)
+  - [1. Unit Tests](#1-unit-tests)
+  - [2. Integration Tests](#2-integration-tests)
+- [Performance Considerations](#performance-considerations)
+  - [1. Caching Strategy](#1-caching-strategy)
+  - [2. Background Processing](#2-background-processing)
+  - [3. Memory Management](#3-memory-management)
+- [Conclusion](#conclusion)
+<!-- TOC END -->
+
+
 ## Overview
 
 EducationAI follows Clean Architecture principles to ensure maintainability, testability, and scalability. This guide explains the architectural decisions, patterns, and best practices used in the framework.
