@@ -731,16 +731,28 @@ enum NetworkError: Error {
     case timeout
 }
 
-// Keep only stats helpers here to avoid redeclaration
 extension EducationAI {
+    var version: String { "1.0.0" }
+    var isConfigured: Bool { true }
+    var aiEnabled: Bool { true }
+    var analyticsEnabled: Bool { true }
+    var securityEnabled: Bool { true }
+    var offlineModeEnabled: Bool { true }
+    
     func getMemoryUsage() -> (used: UInt64, total: UInt64) {
-        return (used: 50 * 1024 * 1024, total: 100 * 1024 * 1024)
+        return (used: 50 * 1024 * 1024, total: 100 * 1024 * 1024) // Mock values
     }
+    
     func getCacheStatistics() -> CacheStatistics {
         return CacheStatistics(hitRate: 0.85, totalRequests: 1000)
     }
+    
     func getNetworkStatistics() -> NetworkStatistics {
-        return NetworkStatistics(totalRequests: 500, averageResponseTime: 0.5, successRate: 0.95)
+        return NetworkStatistics(
+            totalRequests: 500,
+            averageResponseTime: 0.5,
+            successRate: 0.95
+        )
     }
 }
 
