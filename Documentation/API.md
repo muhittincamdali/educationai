@@ -1,5 +1,42 @@
 # EducationAI API Documentation
 
+<!-- TOC START -->
+## Table of Contents
+- [EducationAI API Documentation](#educationai-api-documentation)
+- [Overview](#overview)
+- [Table of Contents](#table-of-contents)
+- [Core Classes](#core-classes)
+  - [EducationAI](#educationai)
+    - [Methods](#methods)
+  - [EducationAISettings](#educationaisettings)
+- [AI Services](#ai-services)
+  - [AIService](#aiservice)
+    - [Methods](#methods)
+  - [LearningEngine](#learningengine)
+- [Security](#security)
+  - [SecurityManager](#securitymanager)
+    - [Methods](#methods)
+- [Authentication](#authentication)
+  - [AuthManager](#authmanager)
+- [Learning Management](#learning-management)
+  - [CourseManager](#coursemanager)
+  - [LessonManager](#lessonmanager)
+- [Analytics](#analytics)
+  - [AnalyticsManager](#analyticsmanager)
+- [Error Handling](#error-handling)
+  - [EducationAIError](#educationaierror)
+  - [Error Handling Example](#error-handling-example)
+- [Best Practices](#best-practices)
+  - [Performance Optimization](#performance-optimization)
+  - [Security Guidelines](#security-guidelines)
+  - [Testing](#testing)
+- [Migration Guide](#migration-guide)
+  - [From Version 1.0 to 1.1](#from-version-10-to-11)
+  - [Breaking Changes](#breaking-changes)
+- [Support](#support)
+<!-- TOC END -->
+
+
 ## Overview
 
 EducationAI provides a comprehensive API for building AI-powered educational applications. This documentation covers all public APIs, classes, and methods available in the framework.

@@ -1,5 +1,43 @@
 # Getting Started with EducationAI
 
+<!-- TOC START -->
+## Table of Contents
+- [Getting Started with EducationAI](#getting-started-with-educationai)
+- [Quick Start Guide](#quick-start-guide)
+- [Table of Contents](#table-of-contents)
+- [Installation](#installation)
+  - [Requirements](#requirements)
+  - [Swift Package Manager](#swift-package-manager)
+  - [Manual Installation](#manual-installation)
+- [Basic Setup](#basic-setup)
+  - [1. Import the Framework](#1-import-the-framework)
+  - [2. Initialize EducationAI](#2-initialize-educationai)
+  - [3. Configure Settings (Optional)](#3-configure-settings-optional)
+- [First Steps](#first-steps)
+  - [Create Your First AI-Powered Learning App](#create-your-first-ai-powered-learning-app)
+- [Authentication](#authentication)
+  - [Biometric Authentication](#biometric-authentication)
+  - [User Authentication](#user-authentication)
+- [AI Features](#ai-features)
+  - [Personalized Learning](#personalized-learning)
+  - [Learning Analytics](#learning-analytics)
+  - [Adaptive Content](#adaptive-content)
+- [Best Practices](#best-practices)
+  - [1. Error Handling](#1-error-handling)
+  - [2. Memory Management](#2-memory-management)
+  - [3. Background Processing](#3-background-processing)
+  - [4. Caching](#4-caching)
+- [Troubleshooting](#troubleshooting)
+  - [Common Issues](#common-issues)
+    - [1. Authentication Fails](#1-authentication-fails)
+    - [2. AI Services Not Responding](#2-ai-services-not-responding)
+    - [3. Performance Issues](#3-performance-issues)
+  - [Debug Mode](#debug-mode)
+  - [Getting Help](#getting-help)
+- [Next Steps](#next-steps)
+<!-- TOC END -->
+
+
 ## Quick Start Guide
 
 Welcome to EducationAI! This guide will help you get up and running with the framework in just 5 minutes.
