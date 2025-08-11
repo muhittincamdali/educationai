@@ -1,0 +1,37 @@
+// swift-tools-version: 5.9
+import PackageDescription
+
+let package = Package(
+    name: "EducationAI",
+    platforms: [
+        .iOS(.v15),
+        .macOS(.v10_15)
+    ],
+    products: [
+        .library(
+            name: "EducationAI",
+            targets: ["EducationAI"]),
+    ],
+    dependencies: [
+        .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.8.1"),
+        .package(url: "https://github.com/ReactiveX/RxSwift.git", from: "6.6.0"),
+        .package(url: "https://github.com/SnapKit/SnapKit.git", from: "5.6.0"),
+        .package(url: "https://github.com/SDWebImage/SDWebImage.git", from: "5.18.10")
+    ],
+    targets: [
+        .target(
+            name: "EducationAI",
+            dependencies: [
+                "Alamofire",
+                .product(name: "RxSwift", package: "RxSwift"),
+                .product(name: "RxCocoa", package: "RxSwift"),
+                "SnapKit",
+                "SDWebImage"
+            ],
+            path: "Sources"),
+        .testTarget(
+            name: "EducationAITests",
+            dependencies: ["EducationAI"],
+            path: "Tests"),
+    ]
+)
