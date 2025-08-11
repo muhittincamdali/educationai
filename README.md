@@ -205,3 +205,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 **EducationAI** - Revolutionizing education through artificial intelligence. 
+
+## 🌟 Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=muhittincamdali/educationai&type=Date)](https://star-history.com/#muhittincamdali/educationai&Date)
+
