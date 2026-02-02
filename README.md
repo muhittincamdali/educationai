@@ -18,12 +18,12 @@
 <div align="center">
 
 [![Swift](https://img.shields.io/badge/Swift-5.9+-F05138?style=flat-square&logo=swift&logoColor=white)](https://swift.org)
-[![iOS](https://img.shields.io/badge/iOS-15.0+-000000?style=flat-square&logo=apple&logoColor=white)](https://developer.apple.com/ios/)
-[![macOS](https://img.shields.io/badge/macOS-12.0+-000000?style=flat-square&logo=macos&logoColor=white)](https://developer.apple.com/macos/)
-[![SPM](https://img.shields.io/badge/SPM-Compatible-brightgreen?style=flat-square&logo=swift)](https://swift.org/package-manager/)
-[![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
-[![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20macOS-lightgrey?style=flat-square)]()
-
+[![CI](https://github.com/muhittincamdali/educationai/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/muhittincamdali/educationai/actions)[![iOS](https://img.shields.io/badge/iOS-15.0+-000000?style=flat-square&logo=apple&logoColor=white)](https://developer.apple.com/ios/)
+[![CI](https://github.com/muhittincamdali/educationai/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/muhittincamdali/educationai/actions)[![macOS](https://img.shields.io/badge/macOS-12.0+-000000?style=flat-square&logo=macos&logoColor=white)](https://developer.apple.com/macos/)
+[![CI](https://github.com/muhittincamdali/educationai/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/muhittincamdali/educationai/actions)[![SPM](https://img.shields.io/badge/SPM-Compatible-brightgreen?style=flat-square&logo=swift)](https://swift.org/package-manager/)
+[![CI](https://github.com/muhittincamdali/educationai/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/muhittincamdali/educationai/actions)[![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
+[![CI](https://github.com/muhittincamdali/educationai/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/muhittincamdali/educationai/actions)[![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20macOS-lightgrey?style=flat-square)]()
+[![CI](https://github.com/muhittincamdali/educationai/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/muhittincamdali/educationai/actions)
 **Intelligent tutoring system powered by on-device machine learning**
 
 Build adaptive learning experiences with personalized quiz generation, real-time progress tracking, and Apple Intelligence integration.
