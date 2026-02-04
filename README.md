@@ -12,9 +12,14 @@
   <a href="https://github.com/muhittincamdali/educationai/actions/workflows/ci.yml">
     <img src="https://github.com/muhittincamdali/educationai/actions/workflows/ci.yml/badge.svg" alt="CI Status"/>
   </a>
-  <img src="https://img.shields.io/badge/Swift-6.0-orange.svg" alt="Swift 6.0"/>
-  <img src="https://img.shields.io/badge/iOS-17.0+-blue.svg" alt="iOS 17.0+"/>
-  <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License"/>
+  <img src="https://img.shields.io/badge/Swift-6.0-FA7343?style=flat-square&logo=swift&logoColor=white" alt="Swift 6.0"/>
+  <img src="https://img.shields.io/badge/iOS-17.0+-000000?style=flat-square&logo=apple&logoColor=white" alt="iOS 17.0+"/>
+  <img src="https://img.shields.io/badge/SPM-Compatible-FA7343?style=flat-square&logo=swift&logoColor=white" alt="SPM"/>
+  <a href="https://cocoapods.org/pods/EducationAI">
+    <img src="https://img.shields.io/badge/CocoaPods-Compatible-EE3322?style=flat-square&logo=cocoapods&logoColor=white" alt="CocoaPods"/>
+  </a>
+  <img src="https://img.shields.io/badge/CoreML-Powered-007AFF?style=flat-square&logo=apple&logoColor=white" alt="CoreML"/>
+  <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License"/>
 </p>
 
 <p align="center">
@@ -24,6 +29,23 @@
   <a href="#ai-features">AI Features</a> •
   <a href="#documentation">Documentation</a>
 </p>
+
+---
+
+## 📋 Table of Contents
+
+- [Why EducationAI?](#why-educationai)
+- [Features](#features)
+- [Requirements](#requirements)
+- [Installation](#installation)
+  - [Swift Package Manager](#swift-package-manager)
+  - [CocoaPods](#cocoapods)
+- [Quick Start](#quick-start)
+- [AI Features](#ai-features)
+- [Documentation](#documentation)
+- [Contributing](#contributing)
+- [License](#license)
+- [Star History](#-star-history)
 
 ---
 
