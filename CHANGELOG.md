@@ -1,34 +1,46 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+All notable changes to EducationAI will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
-
-## [Unreleased]
+## [1.0.0] - 2025-02-05
 
 ### Added
-- visionOS navigation support
+- **Spaced Repetition** — SM-2 algorithm with configurable parameters
+  - Automatic interval scheduling based on recall quality
+  - Study queue builder combining due reviews and new cards
+  - Preview intervals for each rating option
+- **Quiz Generation** — Auto-generate quizzes from flashcard decks
+  - Multiple choice, true/false, short answer, fill-in-the-blank
+  - Difficulty filtering and shuffling
+  - Built-in scoring engine with per-question results
+- **Adaptive Difficulty** — Real-time difficulty adjustment
+  - Sliding window performance analysis
+  - Configurable target accuracy zone (70-85%)
+  - Per-subject trend detection (improving/stable/declining)
+- **Progress Tracking** — Comprehensive learning analytics
+  - Per-subject mastery, accuracy, study time tracking
+  - Event history with date range queries
+  - Global mastery score across all subjects
+- **Content Recommendation** — Smart study suggestions
+  - Overdue review detection (critical priority)
+  - Weak area identification and targeted practice
+  - New content and lapsed card recommendations
+  - Priority-sorted with time estimates
+- **Gamification** — XP, levels, streaks, and badges
+  - XP system with speed bonuses and streak multipliers
+  - Progressive leveling system
+  - 14 built-in badge definitions across 5 tiers
+  - Daily streak tracking with longest streak record
+- **On-Device Storage** — Privacy-first persistence
+  - UserDefaults-backed JSON storage
+  - Thread-safe read/write operations
+  - No network calls, no analytics SDKs
+- **113 unit tests** with comprehensive coverage
+- Multi-platform support: iOS 15+, macOS 12+, watchOS 8+, tvOS 15+
+- Zero third-party dependencies
 
-## [1.0.0] - 2024-01-15
-
-### Added
-- Type-safe navigation with compile-time checks
-- SwiftUI NavigationStack integration
-- Deep linking support with URL parsing
-- Tab bar coordination
-- Modal presentation handling
-- Navigation state persistence
-- Route parameters with type safety
-- Navigation interceptors (guards)
-- Animated transitions
-- Back stack management
-- Child router support (coordinator pattern)
-
-### Features
-- Zero dependencies
-- Protocol-oriented design
-- Full async/await support
-
-[Unreleased]: https://github.com/muhittincamdali/SwiftRouter/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/muhittincamdali/SwiftRouter/releases/tag/v1.0.0
+### Architecture
+- Clean modular architecture with separate engines
+- All entities are `Codable`, `Sendable`, and value types
+- Thread-safe engine implementations using `NSLock`
+- Protocol-oriented design for testability

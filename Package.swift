@@ -5,33 +5,25 @@ let package = Package(
     name: "EducationAI",
     platforms: [
         .iOS(.v15),
-        .macOS(.v10_15)
+        .macOS(.v12),
+        .watchOS(.v8),
+        .tvOS(.v15)
     ],
     products: [
         .library(
             name: "EducationAI",
-            targets: ["EducationAI"]),
-    ],
-    dependencies: [
-        .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.8.1"),
-        .package(url: "https://github.com/ReactiveX/RxSwift.git", from: "6.6.0"),
-        .package(url: "https://github.com/SnapKit/SnapKit.git", from: "5.6.0"),
-        .package(url: "https://github.com/SDWebImage/SDWebImage.git", from: "5.18.10")
+            targets: ["EducationAI"]
+        ),
     ],
     targets: [
         .target(
             name: "EducationAI",
-            dependencies: [
-                "Alamofire",
-                .product(name: "RxSwift", package: "RxSwift"),
-                .product(name: "RxCocoa", package: "RxSwift"),
-                "SnapKit",
-                "SDWebImage"
-            ],
-            path: "Sources"),
+            path: "Sources/EducationAI"
+        ),
         .testTarget(
             name: "EducationAITests",
             dependencies: ["EducationAI"],
-            path: "Tests"),
+            path: "Tests/EducationAITests"
+        ),
     ]
 )

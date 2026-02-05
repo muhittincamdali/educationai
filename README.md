@@ -5,20 +5,17 @@
 <h1 align="center">EducationAI</h1>
 
 <p align="center">
-  <strong>📚 AI-powered education platform for personalized learning experiences</strong>
+  <strong>Privacy-first adaptive learning framework for Apple platforms</strong>
 </p>
 
 <p align="center">
   <a href="https://github.com/muhittincamdali/educationai/actions/workflows/ci.yml">
     <img src="https://github.com/muhittincamdali/educationai/actions/workflows/ci.yml/badge.svg" alt="CI Status"/>
   </a>
-  <img src="https://img.shields.io/badge/Swift-6.0-FA7343?style=flat-square&logo=swift&logoColor=white" alt="Swift 6.0"/>
-  <img src="https://img.shields.io/badge/iOS-17.0+-000000?style=flat-square&logo=apple&logoColor=white" alt="iOS 17.0+"/>
+  <img src="https://img.shields.io/badge/Swift-5.9+-FA7343?style=flat-square&logo=swift&logoColor=white" alt="Swift 5.9+"/>
+  <img src="https://img.shields.io/badge/iOS-15.0+-000000?style=flat-square&logo=apple&logoColor=white" alt="iOS 15.0+"/>
+  <img src="https://img.shields.io/badge/macOS-12.0+-000000?style=flat-square&logo=apple&logoColor=white" alt="macOS 12.0+"/>
   <img src="https://img.shields.io/badge/SPM-Compatible-FA7343?style=flat-square&logo=swift&logoColor=white" alt="SPM"/>
-  <a href="https://cocoapods.org/pods/EducationAI">
-    <img src="https://img.shields.io/badge/CocoaPods-Compatible-EE3322?style=flat-square&logo=cocoapods&logoColor=white" alt="CocoaPods"/>
-  </a>
-  <img src="https://img.shields.io/badge/CoreML-Powered-007AFF?style=flat-square&logo=apple&logoColor=white" alt="CoreML"/>
   <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License"/>
 </p>
 
@@ -26,58 +23,45 @@
   <a href="#features">Features</a> •
   <a href="#installation">Installation</a> •
   <a href="#quick-start">Quick Start</a> •
-  <a href="#ai-features">AI Features</a> •
+  <a href="#architecture">Architecture</a> •
   <a href="#documentation">Documentation</a>
 </p>
 
 ---
 
-## 📋 Table of Contents
-
-- [Why EducationAI?](#why-educationai)
-- [Features](#features)
-- [Requirements](#requirements)
-- [Installation](#installation)
-  - [Swift Package Manager](#swift-package-manager)
-  - [CocoaPods](#cocoapods)
-- [Quick Start](#quick-start)
-- [AI Features](#ai-features)
-- [Documentation](#documentation)
-- [Contributing](#contributing)
-- [License](#license)
-- [Star History](#-star-history)
-
----
-
 ## Why EducationAI?
 
-Traditional learning apps treat every student the same. **EducationAI** uses on-device machine learning to understand each learner's strengths, weaknesses, and learning style—then adapts content in real-time.
+Most learning apps treat every user the same. **EducationAI** brings six powerful learning engines into a single Swift package — all running on-device with zero server dependency. No data ever leaves the user's phone.
 
 ```swift
-// Create personalized learning experience
-let learner = Learner(profile: userProfile)
-let course = Course.mathematics
+let engine = EducationAI()
 
-let personalizedPath = await EducationAI.generatePath(
-    for: learner,
-    course: course,
-    goal: .masterAlgebra
-)
-// AI creates optimal sequence based on learner's style
+// One function call keeps everything in sync
+let result = engine.recordStudy(card: flashcard, rating: .good, responseTime: 3.5)
+
+print("Next review:", result.nextReviewDate)   // Spaced repetition
+print("XP earned:", result.xpEarned)            // Gamification
+print("Streak:", result.currentStreak)           // Daily streak
+print("New badges:", result.newBadges)           // Achievement system
 ```
 
 ## Features
 
-| Feature | Description |
-|---------|-------------|
-| 🧠 **Adaptive Learning** | AI adjusts difficulty in real-time |
-| 📊 **Learning Analytics** | Track progress and identify gaps |
-| 🎯 **Personalized Paths** | Custom curriculum for each student |
-| 💬 **AI Tutor** | Natural language Q&A assistance |
-| 📝 **Smart Quizzes** | Auto-generated assessments |
-| 🔊 **Text-to-Speech** | Accessible audio content |
-| 🌐 **Multi-Language** | Content in 20+ languages |
-| 📱 **Offline Mode** | Learn without internet |
+| Engine | What it does |
+|--------|-------------|
+| 🧠 **Spaced Repetition** | SM-2 algorithm schedules reviews at optimal intervals |
+| 📝 **Quiz Generation** | Auto-generates quizzes from flashcard decks (MC, T/F, fill-in-the-blank) |
+| 📈 **Adaptive Difficulty** | Real-time difficulty adjustment based on sliding-window performance |
+| 📊 **Progress Tracking** | Per-subject mastery, accuracy, study time, and event history |
+| 🎯 **Content Recommendation** | Suggests what to study next based on overdue, weak, and new content |
+| 🏆 **Gamification** | XP, levels, streaks, and 14 badge types to keep learners engaged |
+
+### Privacy First
+
+- **100% on-device** — all processing happens locally
+- **No network calls** — works completely offline
+- **No analytics SDKs** — zero third-party tracking
+- **COPPA/FERPA/GDPR** friendly by design
 
 ## Installation
 
@@ -89,294 +73,267 @@ dependencies: [
 ]
 ```
 
+Then add `"EducationAI"` to your target's dependencies.
+
+### Requirements
+
+| Platform | Minimum Version |
+|----------|----------------|
+| iOS      | 15.0+          |
+| macOS    | 12.0+          |
+| watchOS  | 8.0+           |
+| tvOS     | 15.0+          |
+
 ## Quick Start
 
-### 1. Initialize the SDK
+### 1. Create Flashcards
 
 ```swift
 import EducationAI
 
-@main
-struct MyApp: App {
-    init() {
-        EducationAI.configure(apiKey: "your-api-key")
-    }
-}
+let subject = Subject(name: "Spanish Vocabulary", category: .language)
+
+let cards = [
+    Flashcard(subjectID: subject.id, front: "Hola", back: "Hello"),
+    Flashcard(subjectID: subject.id, front: "Gracias", back: "Thank you"),
+    Flashcard(subjectID: subject.id, front: "Por favor", back: "Please"),
+]
 ```
 
-### 2. Create a Learner Profile
+### 2. Study with Spaced Repetition
 
 ```swift
-let profile = LearnerProfile(
-    age: 14,
-    gradeLevel: .grade8,
-    learningStyle: .visual,
-    preferredPace: .moderate
+let engine = EducationAI()
+
+// Get today's study queue
+let queue = engine.spacedRepetition.studyQueue(
+    from: cards,
+    maxNew: 20,
+    maxReview: 100
 )
 
-let learner = try await Learner.create(profile: profile)
+// After the user answers, record the result
+let result = engine.recordStudy(
+    card: queue[0],
+    rating: .good,
+    responseTime: 4.2
+)
+
+// The updated card has the new review schedule
+let updatedCard = result.updatedCard
+print("Review again:", updatedCard.nextReviewDate.relativeDescription)
 ```
 
-### 3. Start a Learning Session
+### 3. Generate Quizzes
 
 ```swift
-struct LearningView: View {
-    @StateObject var session = LearningSession()
-    
-    var body: some View {
-        AdaptiveLessonView(session: session)
-            .onAppear {
-                session.start(course: .algebra)
-            }
-    }
-}
-```
-
-## AI Features
-
-### Adaptive Difficulty
-
-The AI continuously adjusts content difficulty based on performance:
-
-```swift
-// AI monitors these signals
-session.onPerformanceUpdate { metrics in
-    // Response time
-    // Accuracy rate
-    // Frustration indicators
-    // Engagement level
-}
-
-// And automatically adjusts
-// - Question difficulty
-// - Hint frequency
-// - Content complexity
-// - Pacing
-```
-
-### AI Tutor
-
-Natural language tutoring powered by on-device LLM:
-
-```swift
-let tutor = AITutor(subject: .mathematics)
-
-// Student asks question
-let response = await tutor.ask("How do I solve quadratic equations?")
-
-// Tutor provides personalized explanation
-// with examples at the student's level
-```
-
-### Smart Content Generation
-
-```swift
-// Generate practice problems
-let problems = await ContentGenerator.generate(
-    topic: .fractions,
-    difficulty: .intermediate,
+// Multiple choice quiz from your flashcards
+let quiz = engine.quizEngine.generate(
+    from: cards,
     count: 10,
-    style: .wordProblems
+    types: [.multipleChoice, .trueFalse],
+    difficulty: .medium
 )
 
-// Generate quizzes
-let quiz = await QuizGenerator.generate(
-    covering: lesson.topics,
-    duration: .minutes(15)
+// Score the answers
+let quizResult = engine.quizEngine.score(
+    quiz: quiz,
+    answers: userAnswers,   // [questionID: selectedAnswer]
+    timeTaken: 120.0
 )
+
+print("Score: \(Int(quizResult.score * 100))%")
+print("Passed: \(quizResult.passed)")
 ```
 
-### Learning Gap Detection
+### 4. Check Progress
 
 ```swift
-let analysis = await LearningAnalyzer.analyze(learner: learner)
+let progress = engine.progressTracker.progress
 
-for gap in analysis.knowledgeGaps {
-    print("Gap in: \(gap.topic)")
-    print("Recommended: \(gap.remediation)")
+print("Total reviews:", progress.totalReviews)
+print("Overall accuracy:", progress.overallAccuracy)
+print("Global mastery:", progress.globalMastery)
+
+if let spanish = progress.subjects[subject.id] {
+    print("Spanish accuracy:", spanish.accuracy)
+    print("Spanish mastery:", spanish.masteryScore)
 }
 ```
 
-## Components
-
-### AdaptiveLessonView
+### 5. Get Recommendations
 
 ```swift
-AdaptiveLessonView(
-    lesson: algebraLesson,
-    learner: currentLearner
-)
-.adaptationSpeed(.gradual)
-.hintsEnabled(true)
-.celebrateProgress(true)
-```
-
-### InteractiveQuiz
-
-```swift
-InteractiveQuiz(quiz: generatedQuiz)
-    .shuffleQuestions(true)
-    .showExplanations(true)
-    .onComplete { results in
-        // Handle quiz results
-    }
-```
-
-### ProgressDashboard
-
-```swift
-ProgressDashboard(learner: learner)
-    .timeRange(.lastMonth)
-    .showMilestones(true)
-    .compareWithPeers(false) // Privacy-first
-```
-
-### FlashcardDeck
-
-```swift
-FlashcardDeck(cards: vocabularyCards)
-    .algorithm(.spacedRepetition)
-    .audioEnabled(true)
-```
-
-## Analytics
-
-### Learning Metrics
-
-```swift
-let metrics = await Analytics.getMetrics(for: learner)
-
-print("Time spent: \(metrics.totalTime)")
-print("Lessons completed: \(metrics.lessonsCompleted)")
-print("Mastery level: \(metrics.masteryPercentage)%")
-print("Streak: \(metrics.currentStreak) days")
-```
-
-### Progress Reports
-
-```swift
-let report = await ReportGenerator.generate(
-    learner: learner,
-    period: .lastMonth,
-    format: .pdf
-)
-// Share with parents/teachers
-```
-
-## Content Management
-
-### Course Structure
-
-```swift
-let course = Course(
-    title: "Algebra Fundamentals",
-    modules: [
-        Module(title: "Variables") {
-            Lesson("What is a Variable?")
-            Lesson("Using Variables")
-            Practice(problems: 10)
-            Quiz()
-        },
-        Module(title: "Equations") {
-            // ...
-        }
-    ]
-)
-```
-
-### Import Content
-
-```swift
-// From various formats
-let content = try await ContentImporter.import(
-    from: scormPackage,
-    format: .scorm
+let recommendations = engine.recommendationEngine.recommend(
+    cards: allCards,
+    progress: progress,
+    limit: 5
 )
 
-// Supported: SCORM, xAPI, QTI, custom JSON
+for rec in recommendations {
+    print("[\(rec.priority)] \(rec.title)")
+    print("  \(rec.description)")
+    print("  ~\(rec.estimatedMinutes) min")
+}
+// [critical] Review overdue cards
+//   12 card(s) need review to maintain retention.
+//   ~6 min
 ```
 
-## Accessibility
+### 6. Gamification
 
 ```swift
-EducationAI.accessibility {
-    $0.voiceOver = true
-    $0.dynamicType = true
-    $0.reduceMotion = true
-    $0.colorBlindMode = .deuteranopia
-    $0.readingSpeed = .slow
+print("Level:", engine.gamification.currentLevel)
+print("Total XP:", engine.gamification.totalXP)
+print("Streak:", engine.gamification.currentStreak, "days")
+print("Progress to next level:", engine.gamification.levelProgress)
+
+for badge in engine.gamification.earnedBadges {
+    print("🏅 \(badge.title) (\(badge.tier.displayName))")
 }
 ```
 
-## Privacy & Security
+## Architecture
 
-- All ML processing on-device
-- No student data shared
-- COPPA & FERPA compliant
-- GDPR compliant
-- Data encryption at rest
-
-## Best Practices
-
-### Lesson Design
-
-```swift
-// ✅ Good: Chunked content
-Lesson {
-    Concept("Introduction", duration: .minutes(3))
-    Practice(questions: 3)
-    Concept("Deep Dive", duration: .minutes(5))
-    Practice(questions: 5)
-    Summary()
-}
-
-// ❌ Avoid: Long uninterrupted content
+```
+EducationAI/
+├── EducationAI.swift              # Main entry point & recordStudy()
+├── Core/
+│   ├── Entities/
+│   │   ├── Flashcard.swift        # Card with SM-2 metadata
+│   │   ├── Quiz.swift             # Quiz, Question, QuizResult
+│   │   ├── Subject.swift          # Subject & category
+│   │   ├── LearningProgress.swift # Progress snapshots
+│   │   ├── Achievement.swift      # Badges, XP events, streaks
+│   │   └── Enums.swift            # DifficultyLevel, RecallRating
+│   └── Protocols/
+├── SpacedRepetition/
+│   ├── SpacedRepetitionScheduler.swift  # SM-2 implementation
+│   └── SM2Parameters.swift              # Tunable parameters
+├── Quiz/
+│   └── QuizEngine.swift           # Quiz generation & scoring
+├── Adaptive/
+│   └── AdaptiveDifficultyEngine.swift   # Real-time difficulty adjustment
+├── Progress/
+│   └── ProgressTracker.swift      # Progress recording & queries
+├── Recommendation/
+│   └── RecommendationEngine.swift # Study recommendations
+├── Gamification/
+│   └── GamificationEngine.swift   # XP, levels, badges, streaks
+├── Storage/
+│   └── LocalStorage.swift         # On-device persistence
+└── Extensions/
+    └── Date+Extensions.swift      # Date helpers
 ```
 
-### Engagement
+### Design Principles
+
+- **Value types by default** — All entities are `struct` + `Codable` + `Sendable`
+- **Protocol-oriented** — Engines are swappable via protocols
+- **Thread-safe** — Concurrent access handled via `NSLock`
+- **Zero dependencies** — Pure Swift, no third-party libraries
+- **Testable** — 113 unit tests with comprehensive coverage
+
+## Spaced Repetition Algorithm
+
+EducationAI uses a refined SM-2 (SuperMemo 2) algorithm:
+
+```
+┌─────────────────────────────────────────────┐
+│              SM-2 Flow                       │
+│                                              │
+│  New Card ──► 1 day ──► 6 days ──► EF × I   │
+│       ▲                                │     │
+│       │         Lapse (forgot)         │     │
+│       └────────────────────────────────┘     │
+│                                              │
+│  Easiness Factor adjusts after each review   │
+│  EF = EF + (0.1 - (5-q) × (0.08 + 0.02×q))│
+│  (clamped to minimum 1.3)                   │
+└─────────────────────────────────────────────┘
+```
+
+Parameters are fully configurable:
 
 ```swift
-// Enable gamification
-session.enableGamification {
-    $0.points = true
-    $0.badges = true
-    $0.leaderboards = false // Privacy
-    $0.celebrations = true
-}
+let params = SM2Parameters(
+    initialInterval: 1.0,      // First correct → 1 day
+    secondInterval: 6.0,       // Second correct → 6 days
+    minimumEasinessFactor: 1.3,
+    defaultEasinessFactor: 2.5,
+    lapseMultiplier: 0.5,
+    maximumInterval: 365.0,
+    easyBonus: 1.3
+)
+
+let ai = EducationAI(configuration: .init(sm2Parameters: params))
+```
+
+## Adaptive Difficulty
+
+The engine maintains a sliding window of recent study events per subject:
+
+```swift
+let snapshot = engine.adaptiveEngine.performanceMetrics(for: subject.id)
+print("Accuracy:", snapshot.accuracy)
+print("Trend:", snapshot.trend)              // .improving / .stable / .declining
+print("Recommended:", snapshot.difficulty)    // .easy / .medium / .hard / .expert
+```
+
+Target accuracy zone is 70–85%. The engine steps difficulty up or down to keep the learner in a flow state.
+
+## Badge System
+
+14 built-in badges across 5 tiers (bronze → diamond):
+
+| Badge | Requirement | Tier |
+|-------|------------|------|
+| Getting Started | 3-day streak | 🥉 Bronze |
+| Week Warrior | 7-day streak | 🥈 Silver |
+| Monthly Master | 30-day streak | 🥇 Gold |
+| Century Scholar | 100-day streak | 💎 Diamond |
+| First Century | 100 reviews | 🥉 Bronze |
+| Dedicated Learner | 1,000 reviews | 🥈 Silver |
+| Knowledge Seeker | 10,000 reviews | 🥇 Gold |
+| Sharp Mind | 90% accuracy | 🥈 Silver |
+| Precision Expert | 95% accuracy | 🥇 Gold |
+| Rising Star | 1,000 XP | 🥉 Bronze |
+| Powerhouse | 10,000 XP | 🥈 Silver |
+| Legendary | 100,000 XP | 🏅 Platinum |
+| First Mastery | Master a subject | 🥈 Silver |
+| Renaissance Learner | Master 3 subjects | 🥇 Gold |
+
+## Configuration
+
+```swift
+let config = EducationAIConfiguration(
+    storageSuite: "com.myapp.learning",  // UserDefaults suite
+    sm2Parameters: .default,              // SM-2 tuning
+    adaptiveSensitivity: 0.5,            // 0 = sluggish, 1 = aggressive
+    maxNewCardsPerDay: 20,               // New card limit
+    maxReviewsPerDay: 100                // Review limit
+)
+
+let engine = EducationAI(configuration: config)
 ```
 
 ## Examples
 
-See the [Examples](Examples/) folder:
-
-- **BasicApp** - Simple learning app
-- **MathTutor** - Mathematics tutoring
-- **LanguageLearning** - Vocabulary & grammar
-- **ScienceLab** - Interactive experiments
-
-## Requirements
-
-| Platform | Version |
-|----------|---------|
-| iOS | 17.0+ |
-| iPadOS | 17.0+ |
-| macOS | 14.0+ |
+See the [Examples](Examples/) folder for complete sample projects.
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md).
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## License
 
-MIT License - see [LICENSE](LICENSE).
+MIT License — see [LICENSE](LICENSE) for details.
 
 ---
 
 <p align="center">
-  <sub>Empowering learners through AI ❤️</sub>
+  <sub>Built for learners who care about privacy ❤️</sub>
 </p>
-
----
 
 ## 📈 Star History
 
