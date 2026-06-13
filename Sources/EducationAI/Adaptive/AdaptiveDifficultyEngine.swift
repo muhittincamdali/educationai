@@ -1,127 +1,135 @@
 import Foundation
+import SwiftAI
 
-/// Adapts content difficulty in real-time based on learner performance.
+/// Adapts content difficulty in real-time based on learner performance using Neural Networks.
 ///
-/// Uses a sliding window of recent study events to compute an
-/// optimal difficulty level that keeps the learner in a flow state —
-/// challenged but not overwhelmed.
-///
-/// ```swift
-/// let engine = AdaptiveDifficultyEngine()
-/// engine.ingest(event: studyEvent)
-/// let recommended = engine.recommendedDifficulty(for: subjectID)
-/// ```
-public final class AdaptiveDifficultyEngine: @unchecked Sendable {
+/// Uses a combination of sliding window statistics and a SwiftAI-powered 
+/// neural network to predict the optimal difficulty level.
+public final class AdaptiveDifficultyEngine: Sendable {
 
-    // MARK: - Configuration
+    // MARK: - Types
+    
+    private struct SubjectState {
+        var buffer: [StudyEvent] = []
+        var currentDifficulty: DifficultyLevel = .medium
+    }
+
+    // MARK: - Properties
+
+    private let state = Locked<[UUID: SubjectState]>([:])
+    private let neuralPredictor = Locked<NeuralNetwork?>(nil)
+    
+    private let _windowSize = Locked<Int>(20)
+    private let _targetAccuracy = Locked<ClosedRange<Double>>(0.70...0.85)
+    
+    public var windowSize: Int {
+        get { _windowSize.withLock { $0 } }
+        set { _windowSize.withLock { $0 = newValue } }
+    }
+    
+    public var targetAccuracy: ClosedRange<Double> {
+        get { _targetAccuracy.withLock { $0 } }
+        set { _targetAccuracy.withLock { $0 = newValue } }
+    }
 
     /// How aggressively difficulty changes (0 = sluggish, 1 = aggressive).
     public let sensitivity: Double
-
-    /// Number of recent events to consider.
-    public var windowSize: Int = 20
-
-    /// Target accuracy zone — difficulty adjusts to keep learner here.
-    public var targetAccuracy: ClosedRange<Double> = 0.70...0.85
-
-    // MARK: - State
-
-    /// Per-subject event buffers.
-    private var eventBuffers: [UUID: [StudyEvent]] = [:]
-
-    /// Per-subject current difficulty.
-    private var currentDifficulties: [UUID: DifficultyLevel] = [:]
-
-    private let lock = NSLock()
 
     // MARK: - Initialization
 
     public init(sensitivity: Double = 0.5) {
         self.sensitivity = max(0, min(1, sensitivity))
+        setupNeuralNetwork()
     }
 
     // MARK: - Public API
 
     /// Feed a new study event into the engine.
     public func ingest(event: StudyEvent) {
-        lock.lock()
-        defer { lock.unlock() }
-
-        var buffer = eventBuffers[event.subjectID, default: []]
-        buffer.append(event)
-        if buffer.count > windowSize {
-            buffer.removeFirst(buffer.count - windowSize)
+        state.withLock { dict in
+            var subjectState = dict[event.subjectID, default: SubjectState()]
+            subjectState.buffer.append(event)
+            if subjectState.buffer.count > windowSize {
+                subjectState.buffer.removeFirst(subjectState.buffer.count - windowSize)
+            }
+            
+            // Use neural network for prediction if available, fallback to legacy math
+            if let nn = neuralPredictor.withLock({ $0 }) {
+                subjectState.currentDifficulty = predictDifficulty(nn: nn, buffer: subjectState.buffer)
+            } else {
+                subjectState.currentDifficulty = fallbackComputeDifficulty(buffer: subjectState.buffer, current: subjectState.currentDifficulty)
+            }
+            
+            dict[event.subjectID] = subjectState
         }
-        eventBuffers[event.subjectID] = buffer
-
-        // Recompute difficulty
-        let newDifficulty = computeDifficulty(for: event.subjectID, buffer: buffer)
-        currentDifficulties[event.subjectID] = newDifficulty
     }
 
     /// Get the recommended difficulty for a subject.
     public func recommendedDifficulty(for subjectID: UUID) -> DifficultyLevel {
-        lock.lock()
-        defer { lock.unlock() }
-        return currentDifficulties[subjectID] ?? .medium
+        state.withLock { $0[subjectID]?.currentDifficulty ?? .medium }
     }
 
     /// Get detailed performance metrics for a subject.
     public func performanceMetrics(for subjectID: UUID) -> PerformanceSnapshot {
-        lock.lock()
-        defer { lock.unlock() }
+        state.withLock { dict in
+            guard let subjectState = dict[subjectID], !subjectState.buffer.isEmpty else {
+                return PerformanceSnapshot(
+                    accuracy: 0,
+                    averageResponseTime: 0,
+                    eventCount: 0,
+                    difficulty: .medium,
+                    trend: .stable
+                )
+            }
 
-        guard let buffer = eventBuffers[subjectID], !buffer.isEmpty else {
+            let buffer = subjectState.buffer
+            let accuracy = computeAccuracy(buffer)
+            let avgTime = computeAverageResponseTime(buffer)
+            let trend = computeTrend(buffer)
+
             return PerformanceSnapshot(
-                accuracy: 0,
-                averageResponseTime: 0,
-                eventCount: 0,
-                difficulty: .medium,
-                trend: .stable
+                accuracy: accuracy,
+                averageResponseTime: avgTime,
+                eventCount: buffer.count,
+                difficulty: subjectState.currentDifficulty,
+                trend: trend
             )
         }
-
-        let accuracy = computeAccuracy(buffer)
-        let avgTime = computeAverageResponseTime(buffer)
-        let difficulty = currentDifficulties[subjectID] ?? .medium
-        let trend = computeTrend(buffer)
-
-        return PerformanceSnapshot(
-            accuracy: accuracy,
-            averageResponseTime: avgTime,
-            eventCount: buffer.count,
-            difficulty: difficulty,
-            trend: trend
-        )
-    }
-
-    /// Reset state for a specific subject.
-    public func reset(for subjectID: UUID) {
-        lock.lock()
-        defer { lock.unlock() }
-        eventBuffers.removeValue(forKey: subjectID)
-        currentDifficulties.removeValue(forKey: subjectID)
-    }
-
-    /// Reset all state.
-    public func resetAll() {
-        lock.lock()
-        defer { lock.unlock() }
-        eventBuffers.removeAll()
-        currentDifficulties.removeAll()
     }
 
     // MARK: - Private Logic
 
-    private func computeDifficulty(for subjectID: UUID, buffer: [StudyEvent]) -> DifficultyLevel {
-        let accuracy = computeAccuracy(buffer)
-        let current = currentDifficulties[subjectID] ?? .medium
+    private func setupNeuralNetwork() {
+        let nn = NeuralNetwork()
+        // Simple architecture: [Accuracy, AvgResponseTime, Trend] -> [Difficulty Score]
+        nn.dense(3, 16, activation: .relu)
+        nn.dense(16, 4, activation: .softmax) // 4 output neurons for 4 difficulty levels
+        neuralPredictor.withLock { $0 = nn }
+    }
 
+    private func predictDifficulty(nn: NeuralNetwork, buffer: [StudyEvent]) -> DifficultyLevel {
+        let acc = Float(computeAccuracy(buffer))
+        let time = Float(computeAverageResponseTime(buffer) / 60.0) // Normalized to minutes
+        let trend: Float = {
+            switch computeTrend(buffer) {
+            case .improving: return 1.0
+            case .stable:    return 0.5
+            case .declining: return 0.0
+            }
+        }()
+        
+        let input = Tensor<Float>(shape: [1, 3], data: [acc, time, trend])
+        let prediction = nn.predict(input)
+        let levelIndex = prediction.argmax()
+        
+        return DifficultyLevel.allCases[min(levelIndex, DifficultyLevel.allCases.count - 1)]
+    }
+
+    private func fallbackComputeDifficulty(buffer: [StudyEvent], current: DifficultyLevel) -> DifficultyLevel {
+        let accuracy = computeAccuracy(buffer)
         if accuracy > targetAccuracy.upperBound {
-            // Too easy — step up if sensitivity allows
             return stepUp(from: current)
         } else if accuracy < targetAccuracy.lowerBound {
-            // Too hard — step down
             return stepDown(from: current)
         }
         return current
@@ -173,21 +181,14 @@ public final class AdaptiveDifficultyEngine: @unchecked Sendable {
 
 // MARK: - Supporting Types
 
-/// Snapshot of current performance for a subject.
 public struct PerformanceSnapshot: Sendable {
-    /// Accuracy in the current sliding window (0-1).
     public let accuracy: Double
-    /// Average response time in seconds.
     public let averageResponseTime: TimeInterval
-    /// Number of events in the window.
     public let eventCount: Int
-    /// Current recommended difficulty.
     public let difficulty: DifficultyLevel
-    /// Performance direction.
     public let trend: PerformanceTrend
 }
 
-/// Direction of performance change.
 public enum PerformanceTrend: String, Codable, Sendable {
     case improving
     case stable
