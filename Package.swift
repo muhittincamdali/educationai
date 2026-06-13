@@ -15,9 +15,13 @@ let package = Package(
             targets: ["EducationAI"]
         ),
     ],
+    dependencies: [
+        .package(path: "../SwiftAI")
+    ],
     targets: [
         .target(
             name: "EducationAI",
+            dependencies: ["SwiftAI"],
             path: "Sources/EducationAI"
         ),
         .testTarget(
