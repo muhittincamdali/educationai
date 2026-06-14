@@ -15,6 +15,9 @@
 
 <h1 align="center">EducationAI</h1>
 
+## 🚀 Killer Feature: Adaptive Neural Tutor
+Why use static quizzes? Powered by `SwiftAI`, the `AdaptiveNeuralTutor` uses on-device SIMD kernels to calculate the user's learning vector in real-time, seamlessly adjusting difficulty without a single server call.
+
 <p align="center">
   <strong>Privacy-first adaptive learning framework for Apple platforms</strong>
 </p>
