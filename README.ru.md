@@ -1,4 +1,4 @@
-<!-- i18n-source: README.md@206b5843162b9156a1841bf924fe7ad48029f18a status=reviewed -->
+<!-- i18n-source: README.md@2f8cac2867c7ebd91d28e6f7b3782064f0af9658 status=reviewed -->
 <!-- brand:start -->
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-ru-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-ru-light.svg"><img src="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-ru-light.svg" alt="EducationAI: Интервальное повторение FSRS-6 и SM-2, тесты, адаптивная сложность и серии занятий для Swift-приложений."></picture></p>
@@ -314,3 +314,5 @@ answers ──► DifficultyAdjuster
 ## Лицензия
 
 Распространяется по лицензии MIT. Подробнее — в файле [LICENSE](LICENSE).
+
+Design notes: https://muhittincamdali.com/en/open-source/educationai/

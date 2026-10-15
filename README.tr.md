@@ -1,4 +1,4 @@
-<!-- i18n-source: README.md@206b5843162b9156a1841bf924fe7ad48029f18a status=reviewed -->
+<!-- i18n-source: README.md@2f8cac2867c7ebd91d28e6f7b3782064f0af9658 status=reviewed -->
 <!-- brand:start -->
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-tr-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-tr-light.svg"><img src="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-tr-light.svg" alt="EducationAI: Swift uygulamaları için FSRS-6 ve SM-2 ile aralıklı tekrar, sınavlar, uyarlanabilir zorluk ve çalışma serileri."></picture></p>
@@ -376,3 +376,5 @@ Katkılarınızı bekliyoruz. Pull request açmadan önce [katkı rehberini](htt
 ## Lisans
 
 MIT lisansıyla yayımlanmıştır. Ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
+
+Design notes: https://muhittincamdali.com/open-source/educationai/ · English: https://muhittincamdali.com/en/open-source/educationai/

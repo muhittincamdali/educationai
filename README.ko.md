@@ -1,4 +1,4 @@
-<!-- i18n-source: README.md@206b5843162b9156a1841bf924fe7ad48029f18a status=reviewed -->
+<!-- i18n-source: README.md@2f8cac2867c7ebd91d28e6f7b3782064f0af9658 status=reviewed -->
 <!-- brand:start -->
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-ko-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-ko-light.svg"><img src="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-ko-light.svg" alt="EducationAI: Swift 앱을 위한 FSRS-6·SM-2 간격 반복, 퀴즈, 적응형 난이도, 연속 학습 기록."></picture></p>
@@ -314,3 +314,5 @@ answers ──► DifficultyAdjuster
 ## 라이선스
 
 MIT 라이선스로 배포됩니다. 자세한 내용은 [LICENSE](LICENSE)를 참고하세요.
+
+Design notes: https://muhittincamdali.com/en/open-source/educationai/
