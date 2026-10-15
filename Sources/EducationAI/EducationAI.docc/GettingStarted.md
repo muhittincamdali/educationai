@@ -35,7 +35,8 @@ let scheduler = try FSRSScheduler()
 ```
 
 The initializer throws ``SchedulingError/invalidConfiguration(_:)`` for settings outside their
-range, for example a desired retention of 1 or a negative step.
+range, for example a desired retention of 1 or a negative step. With the default settings you
+can also use ``FSRSScheduler/default``, which does not throw.
 
 ### Keep a review state for each card
 

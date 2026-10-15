@@ -37,6 +37,13 @@ public struct FSRSScheduler: Sendable, Hashable {
     /// The largest allowed ``maximumInterval``: 100 years.
     public static let maximumIntervalLimit = 36_500
 
+    /// A scheduler with the default settings: FSRS-6 default weights, 90 % desired retention,
+    /// learning steps of 1 and 10 minutes, a relearning step of 10 minutes, a maximum interval of
+    /// 100 years and fuzz on. Unlike the initializer it does not throw.
+    public static let `default`: FSRSScheduler = {
+        do { return try FSRSScheduler() } catch { preconditionFailure("The default settings are valid: \(error)") }
+    }()
+
     /// Creates a scheduler.
     ///
     /// - Parameters:

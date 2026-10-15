@@ -252,6 +252,17 @@ struct FSRSSchedulerTests {
         #expect(!state.isDue(at: state.due.addingTimeInterval(-1)))
     }
 
+    @Test func defaultSchedulerHasTheDocumentedSettings() throws {
+        let scheduler = FSRSScheduler.default
+        #expect(scheduler == (try FSRSScheduler()))
+        #expect(scheduler.weights == FSRSWeights.defaults)
+        #expect(scheduler.desiredRetention == 0.9)
+        #expect(scheduler.learningSteps == [60, 600])
+        #expect(scheduler.relearningSteps == [600])
+        #expect(scheduler.maximumInterval == 36_500)
+        #expect(scheduler.fuzzEnabled)
+    }
+
     @Test func schedulerAndStatesRoundTripThroughJSON() throws {
         let scheduler = try FSRSScheduler(desiredRetention: 0.87, learningSteps: [30, 300], maximumInterval: 400)
         let decoded = try JSONDecoder().decode(FSRSScheduler.self, from: JSONEncoder().encode(scheduler))
