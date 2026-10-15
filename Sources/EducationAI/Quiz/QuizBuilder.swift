@@ -47,10 +47,14 @@ public enum QuizBuilder {
     }
 
     /// Typed-answer questions that accept each card's answer and its alternatives.
-    /// Cards without a non-empty answer are skipped.
-    public static func typedAnswer(from cards: [Flashcard]) -> [QuizQuestion] {
+    ///
+    /// A card gets no question when `matcher` can match none of its answers, for example when
+    /// they are blank, or only punctuation and `matcher` ignores punctuation. Pass the matcher
+    /// the ``QuizSession`` will use, which rejects such questions.
+    public static func typedAnswer(from cards: [Flashcard], matcher: AnswerMatcher = AnswerMatcher()) -> [QuizQuestion] {
         cards.compactMap { card in
-            try? QuizQuestion(id: card.id, prompt: card.front, kind: .typedAnswer(acceptedAnswers: card.acceptedAnswers))
+            guard card.acceptedAnswers.contains(where: matcher.canMatch) else { return nil }
+            return try? QuizQuestion(id: card.id, prompt: card.front, kind: .typedAnswer(acceptedAnswers: card.acceptedAnswers))
         }
     }
 

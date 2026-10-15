@@ -51,12 +51,17 @@ public struct QuizSession: Codable, Sendable, Hashable {
     private var nextPosition = 0
 
     /// Starts a quiz.
-    /// - Throws: ``QuizError/duplicateQuestionID(_:)`` when two questions share an identifier.
+    /// - Throws: ``QuizError/duplicateQuestionID(_:)`` when two questions share an identifier, or
+    ///   ``QuizError/invalidQuestion(_:)`` for a typed question that `matcher` can never grade as
+    ///   right, such as one whose only accepted answer is "!!!" while punctuation is ignored.
     public init(questions: [QuizQuestion], matcher: AnswerMatcher = AnswerMatcher()) throws {
         var questionIndex = [String: Int](minimumCapacity: questions.count)
         for (position, question) in questions.enumerated() {
             guard questionIndex.updateValue(position, forKey: question.id) == nil else {
                 throw QuizError.duplicateQuestionID(question.id)
+            }
+            if case .typedAnswer(let accepted) = question.kind, !accepted.contains(where: matcher.canMatch) {
+                throw QuizError.invalidQuestion("\(question.id): no accepted answer can match with this matcher")
             }
         }
         self.questions = questions

@@ -114,6 +114,12 @@ public struct AnswerMatcher: Codable, Sendable, Hashable {
         return String(result).precomposedStringWithCanonicalMapping
     }
 
+    /// Whether some response can match `accepted`: it keeps a character after normalization and
+    /// is no longer than ``maximumLength``. An accepted answer that fails this matches nothing.
+    func canMatch(_ accepted: String) -> Bool {
+        comparable(accepted).map { !$0.isEmpty } ?? false
+    }
+
     private func comparable(_ text: String) -> [Character]? {
         guard text.utf8.count <= Self.maximumInputBytes else { return nil }
         let characters = Array(normalized(text))

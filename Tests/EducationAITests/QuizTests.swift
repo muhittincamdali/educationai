@@ -34,6 +34,22 @@ struct QuizTests {
         }
         #expect(throws: QuizError.self) { try QuizQuestion(id: "e", prompt: "?", kind: .typedAnswer(acceptedAnswers: [])) }
         #expect(throws: QuizError.self) { try QuizQuestion(id: "f", prompt: "?", kind: .typedAnswer(acceptedAnswers: [" ", "\n"])) }
+        #expect(throws: QuizError.self) { try QuizQuestion(id: "g", prompt: "?", kind: .typedAnswer(acceptedAnswers: ["\u{200B}", "\u{FEFF} "])) }
+        let tooLong = String(repeating: "a", count: AnswerMatcher.maximumLength + 1)
+        #expect(throws: QuizError.self) { try QuizQuestion(id: "h", prompt: "?", kind: .typedAnswer(acceptedAnswers: [tooLong])) }
+    }
+
+    @Test func typedQuestionsMustBeAnswerableWithTheSessionsMatcher() throws {
+        let punctuation = try QuizQuestion(id: "bang", prompt: "Type three exclamation marks", kind: .typedAnswer(acceptedAnswers: ["!!!"]))
+        #expect(throws: QuizError.invalidQuestion("bang: no accepted answer can match with this matcher")) {
+            try QuizSession(questions: [punctuation])
+        }
+        var literal = try QuizSession(questions: [punctuation], matcher: AnswerMatcher(ignoresPunctuation: false))
+        #expect(try literal.answer(.text("!!!"), to: "bang").evaluation == .correct)
+
+        let cards = [Flashcard(id: "bang", front: "?", back: "!!!"), Flashcard(id: "ok", front: "?", back: "ok")]
+        #expect(QuizBuilder.typedAnswer(from: cards).map(\.id) == ["ok"])
+        #expect(QuizBuilder.typedAnswer(from: cards, matcher: AnswerMatcher(ignoresPunctuation: false)).map(\.id) == ["bang", "ok"])
     }
 
     @Test func decodingChecksTheQuestion() throws {

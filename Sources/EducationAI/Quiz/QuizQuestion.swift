@@ -31,6 +31,12 @@ public struct QuizQuestion: Identifiable, Codable, Sendable, Hashable {
     /// The most choices a multiple-choice question may have.
     public static let maximumChoices = 10
 
+    /// The matcher that folds nothing but white space and invisible characters, so an accepted
+    /// answer it cannot match is one that no matcher can match.
+    private static let literalMatcher = AnswerMatcher(
+        ignoresCase: false, ignoresDiacritics: false, ignoresPunctuation: false, typoTolerance: .none
+    )
+
     /// The question's identifier, unique within a session.
     public let id: String
     /// The question text.
@@ -43,7 +49,9 @@ public struct QuizQuestion: Identifiable, Codable, Sendable, Hashable {
     /// Creates a question.
     /// - Throws: ``QuizError/invalidQuestion(_:)`` for a multiple-choice question with fewer than
     ///   2 or more than ``maximumChoices`` choices, a correct index outside the choices, or a typed
-    ///   question without a non-empty accepted answer.
+    ///   question without an accepted answer that can be typed: one that keeps a character once
+    ///   white space and invisible characters are removed and is at most
+    ///   ``AnswerMatcher/maximumLength`` characters long.
     public init(id: String, prompt: String, kind: Kind, explanation: String? = nil) throws {
         switch kind {
         case let .multipleChoice(choices, correctIndex):
@@ -54,8 +62,8 @@ public struct QuizQuestion: Identifiable, Codable, Sendable, Hashable {
                 throw QuizError.invalidQuestion("\(id): correctIndex \(correctIndex) outside the choices")
             }
         case .typedAnswer(let accepted):
-            guard accepted.contains(where: { !$0.allSatisfy(\.isWhitespace) }) else {
-                throw QuizError.invalidQuestion("\(id): no accepted answer")
+            guard accepted.contains(where: Self.literalMatcher.canMatch) else {
+                throw QuizError.invalidQuestion("\(id): no accepted answer that can be typed")
             }
         case .trueFalse:
             break

@@ -37,7 +37,8 @@ Because every public name changes, this release is a new major version.
   tolerance by answer length, and a fixed tolerance that stays below half of the answer) and `AnswerHint` (masks whole grapheme clusters and drops
   invisible characters).
 - `QuizQuestion`, `QuizSession`, `QuizResult` with a suggested rating, and `QuizBuilder` for
-  multiple-choice and typed questions from flashcards.
+  multiple-choice and typed questions from flashcards. A typed question needs an accepted
+  answer that the session's matcher can match.
 - `DifficultyAdjuster`, which keeps accuracy inside a target band, and `StudyStreak`, which
   counts consecutive study days in the learner's calendar.
 - `SeededRandomNumberGenerator` for reproducible fuzz and quiz order.
