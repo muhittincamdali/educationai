@@ -53,7 +53,7 @@ dependencies, and is written for Swift 6 strict concurrency.
 - **Everything around the scheduler** — a study queue with daily limits, SM-2 and its migration
   to FSRS, multiple-choice and typed quizzes built from cards, answer hints, a difficulty
   adjuster, a per-day forecast, retention statistics and streaks in the learner's time zone.
-- **Tested** — 119 tests, run on macOS and on an iOS simulator, including the README samples.
+- **Tested** — 124 tests, run on macOS and on an iOS simulator, including the README samples.
 
 ## Quick start
 
