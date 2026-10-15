@@ -17,6 +17,7 @@ public struct SeededRandomNumberGenerator: RandomNumberGenerator, Sendable, Hash
         state = seed
     }
 
+    /// Returns the next value of the sequence.
     public mutating func next() -> UInt64 {
         state &+= 0x9E37_79B9_7F4A_7C15
         var value = state

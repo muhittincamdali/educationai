@@ -15,5 +15,6 @@ public enum Rating: Int, CaseIterable, Codable, Sendable, Hashable, Comparable {
     /// Whether the learner remembered the answer (every rating except ``again``).
     public var isSuccessfulRecall: Bool { self != .again }
 
+    /// Orders ratings from ``again`` to ``easy``.
     public static func < (lhs: Rating, rhs: Rating) -> Bool { lhs.rawValue < rhs.rawValue }
 }

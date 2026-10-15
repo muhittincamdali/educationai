@@ -10,6 +10,7 @@ public enum SchedulingError: Error, Sendable, Hashable {
 }
 
 extension SchedulingError: CustomStringConvertible {
+    /// A message naming the problem.
     public var description: String {
         switch self {
         case .invalidConfiguration(let message): "Invalid scheduler configuration: \(message)"

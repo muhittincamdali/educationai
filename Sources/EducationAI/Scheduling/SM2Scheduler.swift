@@ -56,6 +56,7 @@ public struct SM2Scheduler: Sendable, Hashable, Codable {
         self.maximumInterval = maximumInterval
     }
 
+    /// Decodes a scheduler and checks its maximum interval.
     public init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         try self.init(maximumInterval: try container.decode(Int.self, forKey: .maximumInterval))

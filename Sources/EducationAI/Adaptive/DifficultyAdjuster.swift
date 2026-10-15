@@ -15,7 +15,12 @@
 public struct DifficultyAdjuster: Codable, Sendable, Hashable {
     /// What the last recorded answer did to the level.
     public enum Change: Sendable, Hashable {
-        case raised, lowered, unchanged
+        /// The level went up by one.
+        case raised
+        /// The level went down by one.
+        case lowered
+        /// The level stayed the same.
+        case unchanged
     }
 
     /// The largest window allowed.

@@ -197,6 +197,7 @@ extension FSRSScheduler: Codable {
         )
     }
 
+    /// Encodes the settings.
     public func encode(to encoder: any Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(weights, forKey: .weights)
