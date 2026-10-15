@@ -1,0 +1,386 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		16F292F5304A29C80ECD1A9E /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F4659FBA44349412A46785 /* StatsView.swift */; };
+		48226AAFBE9E6E9DD75AFC19 /* StudyDeckApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88C7C3033416A09A66A25D9 /* StudyDeckApp.swift */; };
+		4F20A1E7639D60F33BDB1537 /* DeckStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DAE6F56CC5FBAAAD64F011 /* DeckStore.swift */; };
+		529B150DC93F5D6A263E9484 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602F4E7B47274105CECCC256 /* ContentView.swift */; };
+		5D03421A7181812D459B09D9 /* SampleDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFB51305EEEF7BE0E8DEF8B /* SampleDeck.swift */; };
+		64AD512D8BF74C50F0D88F0D /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CDE9AFBB59D8D725933306 /* QuizView.swift */; };
+		95DCB9A683598CDBA030C1BA /* EducationAI in Frameworks */ = {isa = PBXBuildFile; productRef = 4712D237D1BFADB2C51C932B /* EducationAI */; };
+		A96DF3A3CE5998CB3094BF2A /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC3F3C1A27C16A826943164 /* ReviewView.swift */; };
+		C3F252F3E0DA3F7695622E40 /* ReadmeSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47891DB761444C1ADBC9A58 /* ReadmeSamples.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0CC3F3C1A27C16A826943164 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
+		132C0BCD1B1D9A0BE5FE2087 /* StudyDeck.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = StudyDeck.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DFB51305EEEF7BE0E8DEF8B /* SampleDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDeck.swift; sourceTree = "<group>"; };
+		602F4E7B47274105CECCC256 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A2F4659FBA44349412A46785 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		A6528BECE6F80F756E56DA76 /* educationai */ = {isa = PBXFileReference; lastKnownFileType = folder; name = educationai; path = ../..; sourceTree = SOURCE_ROOT; };
+		C88C7C3033416A09A66A25D9 /* StudyDeckApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyDeckApp.swift; sourceTree = "<group>"; };
+		C9DAE6F56CC5FBAAAD64F011 /* DeckStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckStore.swift; sourceTree = "<group>"; };
+		E47891DB761444C1ADBC9A58 /* ReadmeSamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadmeSamples.swift; sourceTree = "<group>"; };
+		F5CDE9AFBB59D8D725933306 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D7492CA067EB4885D38DF1D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95DCB9A683598CDBA030C1BA /* EducationAI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0F7881ECD644C3B7E2D1BFE2 = {
+			isa = PBXGroup;
+			children = (
+				D6E18A0AB8FEE7C39DF7C87B /* Packages */,
+				65FE6B3932E5C7A0F4B61913 /* StudyDeck */,
+				764FF0B0777F684A09CE8DAE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		65FE6B3932E5C7A0F4B61913 /* StudyDeck */ = {
+			isa = PBXGroup;
+			children = (
+				602F4E7B47274105CECCC256 /* ContentView.swift */,
+				C9DAE6F56CC5FBAAAD64F011 /* DeckStore.swift */,
+				F5CDE9AFBB59D8D725933306 /* QuizView.swift */,
+				E47891DB761444C1ADBC9A58 /* ReadmeSamples.swift */,
+				0CC3F3C1A27C16A826943164 /* ReviewView.swift */,
+				2DFB51305EEEF7BE0E8DEF8B /* SampleDeck.swift */,
+				A2F4659FBA44349412A46785 /* StatsView.swift */,
+				C88C7C3033416A09A66A25D9 /* StudyDeckApp.swift */,
+			);
+			path = StudyDeck;
+			sourceTree = "<group>";
+		};
+		764FF0B0777F684A09CE8DAE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				132C0BCD1B1D9A0BE5FE2087 /* StudyDeck.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D6E18A0AB8FEE7C39DF7C87B /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				A6528BECE6F80F756E56DA76 /* educationai */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		34CE182985C180E80D3E4914 /* StudyDeck */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3E9C7A11AF8CFAE5A4633E8 /* Build configuration list for PBXNativeTarget "StudyDeck" */;
+			buildPhases = (
+				9B4C0A678BA9A50E452656C9 /* Sources */,
+				D7492CA067EB4885D38DF1D2 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StudyDeck;
+			packageProductDependencies = (
+				4712D237D1BFADB2C51C932B /* EducationAI */,
+			);
+			productName = StudyDeck;
+			productReference = 132C0BCD1B1D9A0BE5FE2087 /* StudyDeck.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EC0579550745151CEBADF2BC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					34CE182985C180E80D3E4914 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = C363022AC04C5FAFD2776266 /* Build configuration list for PBXProject "StudyDeck" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 0F7881ECD644C3B7E2D1BFE2;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				BD83518E8900AD22FA64EE3D /* XCLocalSwiftPackageReference "../.." */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 764FF0B0777F684A09CE8DAE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				34CE182985C180E80D3E4914 /* StudyDeck */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9B4C0A678BA9A50E452656C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				529B150DC93F5D6A263E9484 /* ContentView.swift in Sources */,
+				4F20A1E7639D60F33BDB1537 /* DeckStore.swift in Sources */,
+				64AD512D8BF74C50F0D88F0D /* QuizView.swift in Sources */,
+				C3F252F3E0DA3F7695622E40 /* ReadmeSamples.swift in Sources */,
+				A96DF3A3CE5998CB3094BF2A /* ReviewView.swift in Sources */,
+				5D03421A7181812D459B09D9 /* SampleDeck.swift in Sources */,
+				16F292F5304A29C80ECD1A9E /* StatsView.swift in Sources */,
+				48226AAFBE9E6E9DD75AFC19 /* StudyDeckApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		2599AB45A92169981166AC5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = StudyDeck;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.muhittincamdali.StudyDeck;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9C31985F9F7051B05B3380AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = StudyDeck;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.muhittincamdali.StudyDeck;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BA171889F7C368F6ABE67DE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		CA2DE94CFC4394AC805ECA32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C363022AC04C5FAFD2776266 /* Build configuration list for PBXProject "StudyDeck" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA171889F7C368F6ABE67DE6 /* Debug */,
+				CA2DE94CFC4394AC805ECA32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F3E9C7A11AF8CFAE5A4633E8 /* Build configuration list for PBXNativeTarget "StudyDeck" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C31985F9F7051B05B3380AF /* Debug */,
+				2599AB45A92169981166AC5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		BD83518E8900AD22FA64EE3D /* XCLocalSwiftPackageReference "../.." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../..;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4712D237D1BFADB2C51C932B /* EducationAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = EducationAI;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = EC0579550745151CEBADF2BC /* Project object */;
+}
