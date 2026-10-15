@@ -1,0 +1,13 @@
+version: 1
+builder:
+  configs:
+    - platform: ios
+      scheme: EducationAI
+      documentation_targets: [EducationAI]
+    - platform: macos-spm
+    - platform: tvos
+      scheme: EducationAI
+    - platform: watchos
+      scheme: EducationAI
+    - platform: visionos
+      scheme: EducationAI
