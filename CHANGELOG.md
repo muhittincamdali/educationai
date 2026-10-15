@@ -51,7 +51,8 @@ Because every public name changes, this release is a new major version.
   questions and adjuster states throw an error instead of trapping. Counters saturate at
   `Int.max`, and intervals are clamped before any conversion to an integer.
 - Saved quiz sessions are graded again when decoded, so an edited file cannot mark a wrong
-  answer as right.
+  answer as right. Questions are looked up by identifier, so resuming a quiz takes time
+  proportional to its size.
 - Work on user input is bounded: typed answers over 32,000 bytes or 500 characters are not
   compared, the typo count is computed in a band around the diagonal, quiz building samples
   wrong choices with a fixed number of draws, and calendar arithmetic skips dates far outside

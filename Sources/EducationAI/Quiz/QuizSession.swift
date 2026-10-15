@@ -41,17 +41,26 @@ public struct QuizSession: Codable, Sendable, Hashable {
     public let matcher: AnswerMatcher
     /// The graded answers so far, in the order they were given.
     public private(set) var results: [QuizResult]
+    /// The position of each question in `questions`, so that answering looks a question up in
+    /// constant time and resuming a saved quiz takes time proportional to its size.
+    private let questionIndex: [String: Int]
     /// The position of each answered question's result in `results`, for constant-time lookups.
     private var resultIndex: [String: Int] = [:]
+    /// The position in `questions` of the first unanswered question (`questions.count` once all
+    /// are answered). It only moves forward, so asking for every question in turn costs linear time.
+    private var nextPosition = 0
 
     /// Starts a quiz.
     /// - Throws: ``QuizError/duplicateQuestionID(_:)`` when two questions share an identifier.
     public init(questions: [QuizQuestion], matcher: AnswerMatcher = AnswerMatcher()) throws {
-        var seen = Set<String>()
-        for question in questions where !seen.insert(question.id).inserted {
-            throw QuizError.duplicateQuestionID(question.id)
+        var questionIndex = [String: Int](minimumCapacity: questions.count)
+        for (position, question) in questions.enumerated() {
+            guard questionIndex.updateValue(position, forKey: question.id) == nil else {
+                throw QuizError.duplicateQuestionID(question.id)
+            }
         }
         self.questions = questions
+        self.questionIndex = questionIndex
         self.matcher = matcher
         self.results = []
     }
@@ -73,7 +82,7 @@ public struct QuizSession: Codable, Sendable, Hashable {
 
     /// The first question not yet answered, or `nil` when the quiz is complete.
     public var currentQuestion: QuizQuestion? {
-        questions.first { resultIndex[$0.id] == nil }
+        questions.indices.contains(nextPosition) ? questions[nextPosition] : nil
     }
 
     /// Whether every question has been answered.
@@ -102,9 +111,8 @@ public struct QuizSession: Codable, Sendable, Hashable {
     ///   ``QuizError/invalidResponse(_:)``.
     @discardableResult
     public mutating func answer(_ response: QuizResponse, to questionID: String, duration: TimeInterval? = nil) throws -> QuizResult {
-        guard let question = questions.first(where: { $0.id == questionID }) else {
-            throw QuizError.unknownQuestion(questionID)
-        }
+        guard let position = questionIndex[questionID] else { throw QuizError.unknownQuestion(questionID) }
+        let question = questions[position]
         guard resultIndex[questionID] == nil else { throw QuizError.alreadyAnswered(questionID) }
         let result = QuizResult(
             questionID: questionID,
@@ -114,6 +122,9 @@ public struct QuizSession: Codable, Sendable, Hashable {
         )
         resultIndex[questionID] = results.count
         results.append(result)
+        while questions.indices.contains(nextPosition), resultIndex[questions[nextPosition].id] != nil {
+            nextPosition += 1
+        }
         return result
     }
 

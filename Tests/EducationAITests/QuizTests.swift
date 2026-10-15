@@ -120,6 +120,33 @@ struct QuizTests {
         }
     }
 
+    @Test func largeSavedQuizzesResumeInLinearTime() throws {
+        let questions = try (0..<100_000).map { try QuizQuestion(id: "q\($0)", prompt: "Statement \($0)", kind: .trueFalse(answer: $0.isMultiple(of: 2))) }
+        var quiz = try QuizSession(questions: questions)
+        for question in questions.dropLast() {
+            try quiz.answer(.trueFalse(true), to: question.id)
+        }
+        let data = try JSONEncoder().encode(quiz)
+        let start = Date()
+        let resumed = try JSONDecoder().decode(QuizSession.self, from: data)
+        // Finding each saved answer's question by scanning the list made this quadratic: about 20 s.
+        #expect(Date().timeIntervalSince(start) < 5)
+        #expect(resumed == quiz)
+        #expect(resumed.currentQuestion?.id == "q99999")
+        #expect(resumed.correctCount == 50_000)
+    }
+
+    @Test func currentQuestionSkipsQuestionsAnsweredOutOfOrder() throws {
+        var quiz = try QuizSession(questions: QuizBuilder.typedAnswer(from: capitals))
+        try quiz.answer(.text("Tokyo"), to: "jp")
+        #expect(quiz.currentQuestion?.id == "fr")
+        try quiz.answer(.text("Paris"), to: "fr")
+        #expect(quiz.currentQuestion?.id == "ke")
+        for id in ["np", "pe", "ke"] { try quiz.answer(.text("?"), to: id) }
+        #expect(quiz.currentQuestion == nil)
+        #expect(quiz.isComplete)
+    }
+
     // MARK: Builder
 
     @Test func multipleChoiceUsesOtherCardsAnswersAsWrongChoices() throws {
