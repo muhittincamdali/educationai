@@ -65,6 +65,16 @@ struct AnswerMatcherTests {
         #expect(AnswerMatcher(typoTolerance: .fixed(.max)).evaluate("abcdefghij", acceptedAnswers: ["abcdefg"]) == .almostCorrect(expected: "abcdefg", typos: 3))
     }
 
+    @Test func fixedToleranceLeavesMostOfTheAnswerRight() {
+        let lenient = AnswerMatcher(typoTolerance: .fixed(3))
+        #expect(lenient.evaluate("x", acceptedAnswers: ["ab"]) == .incorrect)
+        #expect(lenient.evaluate("xyz", acceptedAnswers: ["abc"]) == .incorrect)
+        #expect(lenient.evaluate("abx", acceptedAnswers: ["abc"]) == .almostCorrect(expected: "abc", typos: 1))
+        #expect(lenient.evaluate("xbcd", acceptedAnswers: ["abcd"]) == .almostCorrect(expected: "abcd", typos: 1))
+        #expect(lenient.evaluate("xycd", acceptedAnswers: ["abcd"]) == .incorrect)
+        #expect([1, 2, 3, 4, 5, 6, 7, 20].map(lenient.allowedTypos(forLength:)) == [0, 0, 1, 1, 2, 2, 3, 3])
+    }
+
     @Test func picksTheClosestAcceptedAnswer() {
         let result = matcher.evaluate("colour", acceptedAnswers: ["colr", "color", "colour"])
         #expect(result == .correct)

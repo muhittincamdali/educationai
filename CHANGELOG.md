@@ -34,7 +34,7 @@ Because every public name changes, this release is a new major version.
   limits), `ReviewForecast` (items due per calendar day, up to 3,650 days) and
   `ReviewStatistics` (counts per rating, true retention, mean answer time).
 - `AnswerMatcher` (case, accent, width and punctuation folding without a locale; typo
-  tolerance by answer length) and `AnswerHint` (masks whole grapheme clusters and drops
+  tolerance by answer length, and a fixed tolerance that stays below half of the answer) and `AnswerHint` (masks whole grapheme clusters and drops
   invisible characters).
 - `QuizQuestion`, `QuizSession`, `QuizResult` with a suggested rating, and `QuizBuilder` for
   multiple-choice and typed questions from flashcards.

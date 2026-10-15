@@ -37,7 +37,9 @@ public struct AnswerMatcher: Codable, Sendable, Hashable {
         case none
         /// No typos for answers of up to 3 characters, 1 up to 7, 2 for longer answers.
         case automatic
-        /// A fixed number of typos, clamped to 0...``AnswerMatcher/maximumTypos``.
+        /// A fixed number of typos, clamped to 0...``AnswerMatcher/maximumTypos`` and to fewer
+        /// than half of the accepted answer's characters, so that most of an answer must be right:
+        /// `.fixed(3)` allows no typo in "ab", 1 in "abc" and 3 from 7 characters on.
         case fixed(Int)
     }
 
@@ -121,7 +123,7 @@ public struct AnswerMatcher: Codable, Sendable, Hashable {
     func allowedTypos(forLength length: Int) -> Int {
         switch typoTolerance {
         case .none: 0
-        case .fixed(let count): min(max(count, 0), Self.maximumTypos)
+        case .fixed(let count): min(max(count, 0), Self.maximumTypos, (length - 1) / 2)
         case .automatic: length <= 3 ? 0 : (length <= 7 ? 1 : 2)
         }
     }

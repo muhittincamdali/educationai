@@ -58,7 +58,8 @@ graded again, so an edited file cannot mark a wrong answer as right.
 - Punctuation is ignored, symbols are not: `"rock n roll"` matches `"Rock 'n' Roll"`, but `"C"`
   does not match `"C++"`.
 - Typos are forgiven by answer length: none up to 3 characters, 1 up to 7, 2 beyond. A swap of
-  two neighboring letters counts as one typo.
+  two neighboring letters counts as one typo. A fixed tolerance such as `.fixed(1)` is also
+  capped below half of the answer's characters, so a two-letter answer must be typed exactly.
 
 ```swift
 let matcher = AnswerMatcher(typoTolerance: .fixed(1))
