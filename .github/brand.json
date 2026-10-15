@@ -1,0 +1,107 @@
+{
+  "name": "EducationAI",
+  "repository": "muhittincamdali/educationai",
+  "branch": "main",
+  "tagline": {
+    "en": "Spaced repetition with FSRS-6 and SM-2, quizzes, adaptive difficulty and study streaks for Swift apps.",
+    "tr": "Swift uygulamaları için FSRS-6 ve SM-2 ile aralıklı tekrar, sınavlar, uyarlanabilir zorluk ve çalışma serileri.",
+    "zh-CN": "为 Swift 应用提供 FSRS-6 和 SM-2 间隔重复、测验、自适应难度和连续学习天数。",
+    "ja": "Swift アプリ向けの FSRS-6・SM-2 間隔反復、クイズ、難易度の自動調整、連続学習日数。",
+    "ko": "Swift 앱을 위한 FSRS-6·SM-2 간격 반복, 퀴즈, 적응형 난이도, 연속 학습 기록.",
+    "es": "Repetición espaciada con FSRS-6 y SM-2, cuestionarios, dificultad adaptativa y rachas para apps en Swift.",
+    "de": "Verteilte Wiederholung mit FSRS-6 und SM-2, Quizze, adaptive Schwierigkeit und Lernserien für Swift-Apps.",
+    "fr": "Répétition espacée avec FSRS-6 et SM-2, quiz, difficulté adaptative et séries d'étude pour apps Swift.",
+    "pt-BR": "Repetição espaçada com FSRS-6 e SM-2, quizzes, dificuldade adaptativa e sequências para apps em Swift.",
+    "ru": "Интервальное повторение FSRS-6 и SM-2, тесты, адаптивная сложность и серии занятий для Swift-приложений."
+  },
+  "tags": {
+    "en": [
+      "FSRS-6 · SM-2",
+      "Quizzes",
+      "Swift 6",
+      "No dependencies"
+    ],
+    "tr": [
+      "FSRS-6 · SM-2",
+      "Sınavlar",
+      "Swift 6",
+      "Bağımlılık yok"
+    ],
+    "zh-CN": [
+      "FSRS-6 · SM-2",
+      "测验",
+      "Swift 6",
+      "无依赖"
+    ],
+    "ja": [
+      "FSRS-6 · SM-2",
+      "クイズ",
+      "Swift 6",
+      "依存関係なし"
+    ],
+    "ko": [
+      "FSRS-6 · SM-2",
+      "퀴즈",
+      "Swift 6",
+      "의존성 없음"
+    ],
+    "es": [
+      "FSRS-6 · SM-2",
+      "Quiz",
+      "Swift 6",
+      "Sin dependencias"
+    ],
+    "de": [
+      "FSRS-6 · SM-2",
+      "Quizze",
+      "Swift 6",
+      "Keine Abhängigkeiten"
+    ],
+    "fr": [
+      "FSRS-6 · SM-2",
+      "Quiz",
+      "Swift 6",
+      "Sans dépendance"
+    ],
+    "pt-BR": [
+      "FSRS-6 · SM-2",
+      "Quizzes",
+      "Swift 6",
+      "Sem dependências"
+    ],
+    "ru": [
+      "FSRS-6 · SM-2",
+      "Тесты",
+      "Swift 6",
+      "Без зависимостей"
+    ]
+  },
+  "motif": "phone",
+  "buttons": [
+    "start",
+    "docs",
+    "examples"
+  ],
+  "links": {
+    "docs": "https://muhittincamdali.github.io/educationai/documentation/educationai/",
+    "examples": "Examples/"
+  },
+  "languages": [
+    "en",
+    "tr",
+    "zh-CN",
+    "ja",
+    "ko",
+    "es",
+    "de",
+    "fr",
+    "pt-BR",
+    "ru"
+  ],
+  "docc": {
+    "targets": [
+      "EducationAI"
+    ]
+  },
+  "socialTheme": "dark"
+}

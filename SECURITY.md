@@ -1,53 +1,43 @@
-# Security Policy
+# Security policy
 
-## Supported Versions
+EducationAI runs inside apps and reads values that come from storage, sync and user input:
+review states, scheduler settings, saved quizzes and typed answers. It promises that no such
+value can crash the app, hang it or make it use memory without bound, and that saved data
+cannot be edited to change a grade. A way around that promise is a vulnerability.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 1.x.x   | :white_check_mark: |
-| < 1.0   | :x:                |
+## In scope
 
-## Reporting a Vulnerability
+- A value that makes the package crash (a trap on NaN, infinity, integer overflow or an index
+  out of range), for example in a decoded `ReviewState`, `SM2State`, `FSRSScheduler`,
+  `QuizSession`, `QuizQuestion` or `DifficultyAdjuster`, or in a date passed to any API.
+- Input that makes the package hang or use time or memory out of proportion to its size: a
+  typed answer, a list of accepted answers, a deck passed to `QuizBuilder` or `StudyQueue`, a
+  set of dates passed to `ReviewForecast` or `StudyStreak`.
+- A saved `QuizSession` that decodes with a grade different from the one its answers earn.
+- An `AnswerHint` that shows characters it should hide.
 
-We take the security of SwiftRouter seriously. If you have discovered a security vulnerability, we appreciate your help in disclosing it to us in a responsible manner.
+Results that are wrong but harmless (an interval that differs from `py-fsrs`, a typed answer
+judged differently than you expected) are bugs: report them in an issue.
 
-### How to Report
+## Supported versions
 
-**Please do not report security vulnerabilities through public GitHub issues.**
+Security fixes are made for the latest release. 1.x is no longer maintained.
 
-Instead, please report them via email to the repository owner. You can find contact information on the GitHub profile.
+## Reporting a vulnerability
 
-Please include the following information:
+Please report vulnerabilities privately, not in a public issue, pull request or discussion.
 
-- Type of issue (e.g., deep link injection, state manipulation, etc.)
-- Full paths of source file(s) related to the manifestation of the issue
-- The location of the affected source code (tag/branch/commit or direct URL)
-- Any special configuration required to reproduce the issue
-- Step-by-step instructions to reproduce the issue
-- Proof-of-concept or exploit code (if possible)
-- Impact of the issue, including how an attacker might exploit it
+1. **Preferred:** open the repository's **Security** tab and choose
+   **Report a vulnerability** ([how private reporting works](https://docs.github.com/en/code-security/how-tos/report-and-fix-vulnerabilities/report-privately)).
+2. **Or** email [muhittincamdali@gmail.com](mailto:muhittincamdali@gmail.com) with
+   "Security" in the subject.
 
-### What to Expect
+Include the version (tag or commit), the input that shows the problem (for example the JSON
+that is decoded) and what happened.
 
-- A confirmation of receipt within 48 hours
-- An assessment of the vulnerability within 7 days
-- Regular updates on our progress
-- Credit for responsible disclosure (if desired)
+## What happens next
 
-## Security Best Practices
-
-When using SwiftRouter in your projects:
-
-1. **Validate Deep Links** - Always validate URL parameters before navigation
-2. **Use Route Guards** - Implement authentication guards for protected routes
-3. **Sanitize Parameters** - Never trust user input from URL parameters
-4. **Audit Navigation Paths** - Review which screens are accessible via deep links
-
-## Security Features
-
-SwiftRouter includes several security considerations:
-
-- **Type-Safe Parameters** - Reduces injection risks
-- **Route Guards** - Authentication/authorization interceptors
-- **URL Validation** - Built-in URL parsing with validation
-- **No External Dependencies** - Minimal attack surface
+- You get a reply within 7 days confirming that the report arrived.
+- The issue is confirmed, fixed with a test that reproduces it, and released together with a
+  GitHub security advisory on a disclosure date agreed with you.
+- You are credited in the advisory unless you prefer not to be.

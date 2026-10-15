@@ -1,33 +1,24 @@
-// swift-tools-version: 5.9
+// swift-tools-version: 6.2
 import PackageDescription
 
 let package = Package(
     name: "EducationAI",
     platforms: [
-        .iOS(.v15),
-        .macOS(.v12),
-        .watchOS(.v8),
-        .tvOS(.v15)
+        .iOS(.v17),
+        .macOS(.v14),
+        .tvOS(.v17),
+        .watchOS(.v10),
+        .visionOS(.v1)
     ],
     products: [
-        .library(
-            name: "EducationAI",
-            targets: ["EducationAI"]
-        ),
-    ],
-    dependencies: [
-        .package(path: "../SwiftAI")
+        .library(name: "EducationAI", targets: ["EducationAI"])
     ],
     targets: [
-        .target(
-            name: "EducationAI",
-            dependencies: ["SwiftAI"],
-            path: "Sources/EducationAI"
-        ),
+        .target(name: "EducationAI"),
         .testTarget(
             name: "EducationAITests",
             dependencies: ["EducationAI"],
-            path: "Tests/EducationAITests"
-        ),
+            resources: [.copy("Fixtures")]
+        )
     ]
 )
