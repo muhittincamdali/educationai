@@ -358,3 +358,5 @@ Contributions are welcome. Read the [contributing guide](https://github.com/muhi
 ## License
 
 Released under the MIT license. See [LICENSE](LICENSE).
+
+Design notes: https://muhittincamdali.com/en/open-source/educationai/

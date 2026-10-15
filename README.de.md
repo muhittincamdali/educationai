@@ -1,4 +1,4 @@
-<!-- i18n-source: README.md@206b5843162b9156a1841bf924fe7ad48029f18a status=reviewed -->
+<!-- i18n-source: README.md@2f8cac2867c7ebd91d28e6f7b3782064f0af9658 status=reviewed -->
 <!-- brand:start -->
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-de-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-de-light.svg"><img src="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-de-light.svg" alt="EducationAI: Verteilte Wiederholung mit FSRS-6 und SM-2, Quizze, adaptive Schwierigkeit und Lernserien für Swift-Apps."></picture></p>
@@ -314,3 +314,5 @@ Beiträge sind willkommen. Lies vor einem Pull Request den [Leitfaden für Beitr
 ## Lizenz
 
 Veröffentlicht unter der MIT-Lizenz. Siehe [LICENSE](LICENSE).
+
+Design notes: https://muhittincamdali.com/en/open-source/educationai/
