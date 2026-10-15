@@ -1,46 +1,82 @@
 # Changelog
 
-All notable changes to EducationAI will be documented in this file.
+All notable changes to this project are documented in this file.
 
-## [1.0.0] - 2025-02-05
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+## [2.0.0] - 2026-10-15
+
+A new package with a new API: the learning logic of a flashcard or study app, centered on an
+FSRS-6 scheduler that matches the reference implementation. The code on `main` before this
+release (an SM-2 scheduler, quiz, progress, recommendation and gamification engines built on
+lock-guarded classes) read the clock itself, converted intervals with `Int(days * 86_400)`,
+which traps on NaN or large stored values, and treated a "hard" answer as a lapse. In June 2026
+it also gained a dependency on a local folder (`../SwiftAI`), so the package no longer resolved
+for anyone else, and placeholder "neural tutor" and "enterprise" types. None of that is kept.
+Because every public name changes, this release is a new major version.
 
 ### Added
-- **Spaced Repetition** — SM-2 algorithm with configurable parameters
-  - Automatic interval scheduling based on recall quality
-  - Study queue builder combining due reviews and new cards
-  - Preview intervals for each rating option
-- **Quiz Generation** — Auto-generate quizzes from flashcard decks
-  - Multiple choice, true/false, short answer, fill-in-the-blank
-  - Difficulty filtering and shuffling
-  - Built-in scoring engine with per-question results
-- **Adaptive Difficulty** — Real-time difficulty adjustment
-  - Sliding window performance analysis
-  - Configurable target accuracy zone (70-85%)
-  - Per-subject trend detection (improving/stable/declining)
-- **Progress Tracking** — Comprehensive learning analytics
-  - Per-subject mastery, accuracy, study time tracking
-  - Event history with date range queries
-  - Global mastery score across all subjects
-- **Content Recommendation** — Smart study suggestions
-  - Overdue review detection (critical priority)
-  - Weak area identification and targeted practice
-  - New content and lapsed card recommendations
-  - Priority-sorted with time estimates
-- **Gamification** — XP, levels, streaks, and badges
-  - XP system with speed bonuses and streak multipliers
-  - Progressive leveling system
-  - 14 built-in badge definitions across 5 tiers
-  - Daily streak tracking with longest streak record
-- **On-Device Storage** — Privacy-first persistence
-  - UserDefaults-backed JSON storage
-  - Thread-safe read/write operations
-  - No network calls, no analytics SDKs
-- **113 unit tests** with comprehensive coverage
-- Multi-platform support: iOS 15+, macOS 12+, watchOS 8+, tvOS 15+
-- Zero third-party dependencies
 
-### Architecture
-- Clean modular architecture with separate engines
-- All entities are `Codable`, `Sendable`, and value types
-- Thread-safe engine implementations using `NSLock`
-- Protocol-oriented design for testability
+- `FSRSScheduler`: FSRS-6 with learning and relearning steps, desired retention, maximum
+  interval, interval fuzz and custom weights (21 from FSRS-6, or 19 from FSRS-5 extended as
+  `ts-fsrs` does). `review`, `preview` (the outcome of all four ratings), `retrievability` and
+  `replay` (rebuild a state from logs). Results match `py-fsrs` 6.3.2; the tests compare 2,400
+  reviews over eight configurations. `FSRSScheduler.default` gives the default settings
+  without a throwing call.
+- `ReviewState`, `ReviewLog`, `ReviewOutcome`, `ReviewPreview`, `Rating` and `FSRSWeights`.
+- `SM2Scheduler` and `SM2State`: SM-2 as published (qualities 0–5, 1 and 6 days, then the
+  interval times the easiness factor), and `ReviewState(migrating:scheduler:sm2Retention:)`,
+  the conversion `fsrs-rs` uses to move SM-2 cards to FSRS.
+- `Flashcard`, `StudyQueue` (learning steps, then due reviews, then new cards, with daily
+  limits), `ReviewForecast` (items due per calendar day, up to 3,650 days) and
+  `ReviewStatistics` (counts per rating, true retention, mean answer time).
+- `AnswerMatcher` (case, accent, width and punctuation folding without a locale; typo
+  tolerance by answer length) and `AnswerHint` (masks whole grapheme clusters and drops
+  invisible characters).
+- `QuizQuestion`, `QuizSession`, `QuizResult` with a suggested rating, and `QuizBuilder` for
+  multiple-choice and typed questions from flashcards.
+- `DifficultyAdjuster`, which keeps accuracy inside a target band, and `StudyStreak`, which
+  counts consecutive study days in the learner's calendar.
+- `SeededRandomNumberGenerator` for reproducible fuzz and quiz order.
+- A DocC catalog with four articles, the StudyDeck example app for iOS and macOS, and README
+  samples that the tests compile and run.
+
+### Security
+
+- Values read back from storage are checked before use. NaN or infinite numbers and dates,
+  negative counts, steps that do not fit the phase, out-of-range settings, invalid quiz
+  questions and adjuster states throw an error instead of trapping. Counters saturate at
+  `Int.max`, and intervals are clamped before any conversion to an integer.
+- Saved quiz sessions are graded again when decoded, so an edited file cannot mark a wrong
+  answer as right.
+- Work on user input is bounded: typed answers over 32,000 bytes or 500 characters are not
+  compared, the typo count is computed in a band around the diagonal, quiz building samples
+  wrong choices with a fixed number of draws, and calendar arithmetic skips dates far outside
+  the requested range.
+
+### Changed
+
+- Requires Swift 6.2 (Xcode 26) and iOS 17, macOS 14, tvOS 17, watchOS 10 or visionOS 1.
+- CI runs on the shared workflows of `muhittincamdali/.github`: SwiftPM build and tests,
+  xcodebuild for five platforms, tests on an iOS simulator, DocC on GitHub Pages, links, wording
+  and README translations.
+
+### Removed
+
+- Every 1.x type: `EducationAI`, `EducationAIConfiguration`, `Flashcard`'s SM-2 fields,
+  `SpacedRepetitionScheduler`, `SM2Parameters`, `QuizEngine`, `AdaptiveDifficultyEngine`,
+  `ProgressTracker`, `RecommendationEngine`, `GamificationEngine`, `LocalStorage`,
+  `AdaptiveNeuralTutor` and the circuit breaker, retry policy, event bus, metrics collector
+  and error handler.
+
+## [1.0.0] - 2025-08-07
+
+First tagged release: an `EducationAI` class with learning models and basic tests, depending on
+Alamofire, RxSwift, SnapKit and SDWebImage.
+
+[Unreleased]: https://github.com/muhittincamdali/educationai/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/muhittincamdali/educationai/compare/v1.0.0...v2.0.0
+[1.0.0]: https://github.com/muhittincamdali/educationai/releases/tag/v1.0.0
