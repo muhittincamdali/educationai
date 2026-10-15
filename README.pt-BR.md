@@ -1,4 +1,4 @@
-<!-- i18n-source: README.md@db55f3d75ea7a74435145e329f03e181aefdd94d status=reviewed -->
+<!-- i18n-source: README.md@206b5843162b9156a1841bf924fe7ad48029f18a status=reviewed -->
 <!-- brand:start -->
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-pt-BR-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-pt-BR-light.svg"><img src="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-pt-BR-light.svg" alt="EducationAI: Repetição espaçada com FSRS-6 e SM-2, quizzes, dificuldade adaptativa e sequências para apps em Swift."></picture></p>

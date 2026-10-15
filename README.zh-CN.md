@@ -1,4 +1,4 @@
-<!-- i18n-source: README.md@db55f3d75ea7a74435145e329f03e181aefdd94d status=reviewed -->
+<!-- i18n-source: README.md@206b5843162b9156a1841bf924fe7ad48029f18a status=reviewed -->
 <!-- brand:start -->
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-zh-CN-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-zh-CN-light.svg"><img src="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-zh-CN-light.svg" alt="EducationAI: 为 Swift 应用提供 FSRS-6 和 SM-2 间隔重复、测验、自适应难度和连续学习天数。"></picture></p>
