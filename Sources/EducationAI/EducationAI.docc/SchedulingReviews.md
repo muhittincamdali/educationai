@@ -11,7 +11,7 @@ from the rating and from how long it has been since the last review, and schedul
 review for the day recall probability reaches ``FSRSScheduler/desiredRetention``.
 
 The formulas, defaults and parameter bounds are those of `py-fsrs` 6.3.2, the reference
-implementation. The package's tests replay 2,400 reviews generated with it and compare
+implementation. The package's tests replay 2,400 reviews computed by it and compare
 stability, difficulty, due date and retrievability after every review.
 
 ### Learning, review and relearning

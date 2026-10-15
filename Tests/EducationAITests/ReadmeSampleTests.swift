@@ -18,6 +18,9 @@ struct ReadmeSampleTests {
         #expect(labels.count == 4)
         #expect(labels[0].hasPrefix("Again"))
         #expect(labels[2].hasPrefix("Good"))
+        // The unit letters depend on the locale; the numbers do not.
+        #expect(labels[0].contains("1"))
+        #expect(labels[1].contains("6"))      // (1 + 10 minutes) / 2 = 5.5 minutes, rounded
         #expect(labels[2].contains("10"))
     }
 
@@ -59,5 +62,14 @@ struct ReadmeSampleTests {
         card.review = outcome.state
         let summary = progressSummary(deck: [card], logs: [outcome.log], now: now)
         #expect(summary.hasPrefix("1-day streak, 1 due today"))
+    }
+
+    @Test func savedDeckLoadsBackUnchanged() throws {
+        var deck = [Flashcard(id: "jp", front: "Capital of Japan", back: "Tokyo", review: ReviewState(due: now))]
+        deck[0].review = try FSRSScheduler.default.review(deck[0].review, rating: .good, at: now).state
+        let url = FileManager.default.temporaryDirectory.appending(path: "readme-deck-\(UUID().uuidString).json")
+        defer { try? FileManager.default.removeItem(at: url) }
+        try save(deck, to: url)
+        #expect(try loadDeck(from: url) == deck)
     }
 }

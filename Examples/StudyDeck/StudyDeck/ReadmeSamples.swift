@@ -106,3 +106,13 @@ func progressSummary(deck: [Flashcard], logs: [ReviewLog], now: Date) -> String 
     return "\(streak.current)-day streak, \(forecast.days[0].count) due today, "
         + "\(forecast.totalCount) this week, \(Int((retention * 100).rounded())) % retained"
 }
+
+// MARK: - Save the deck
+
+func save(_ deck: [Flashcard], to url: URL) throws {
+    try JSONEncoder().encode(deck).write(to: url, options: .atomic)
+}
+
+func loadDeck(from url: URL) throws -> [Flashcard] {
+    try JSONDecoder().decode([Flashcard].self, from: Data(contentsOf: url))
+}
