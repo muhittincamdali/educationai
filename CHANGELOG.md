@@ -50,7 +50,8 @@ Because every public name changes, this release is a new major version.
 - Values read back from storage are checked before use. NaN or infinite numbers and dates,
   negative counts, steps that do not fit the phase, out-of-range settings, invalid quiz
   questions and adjuster states throw an error instead of trapping. Counters saturate at
-  `Int.max`, and intervals are clamped before any conversion to an integer.
+  `Int.max`, intervals are clamped before any conversion to an integer, and stability is kept
+  between 0.001 and 10^10 days, so a huge stored value cannot grow to infinity.
 - Saved quiz sessions are graded again when decoded, so an edited file cannot mark a wrong
   answer as right. Questions are looked up by identifier, so resuming a quiz takes time
   proportional to its size.

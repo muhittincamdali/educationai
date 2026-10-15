@@ -163,6 +163,25 @@ struct FSRSValidationTests {
         #expect(outcome.interval == 365 * 86_400)
     }
 
+    @Test(arguments: [1e308, Double.greatestFiniteMagnitude, FSRSWeights.maximumStability * 10])
+    func hugeStoredStabilityStaysFiniteThroughLaterReviews(stability: Double) throws {
+        var weights = FSRSWeights.defaults
+        weights[19] = 0   // short-term reviews then never shrink the stability's growth
+        let scheduler = try FSRSScheduler(weights: weights, fuzzEnabled: false)
+        for rating in Rating.allCases {
+            for gap: TimeInterval in [0, 30 * 86_400] {
+                var state = ReviewState(phase: .review, step: nil, stability: stability, difficulty: 1, due: start,
+                                        lastReview: start, reviewCount: 3, lapseCount: 0)
+                for review in 1...3 {
+                    let date = start.addingTimeInterval(gap * Double(review))
+                    state = try scheduler.review(state, rating: rating, at: date).state
+                    let next = try #require(state.stability)
+                    #expect(next.isFinite && next <= FSRSWeights.maximumStability)
+                }
+            }
+        }
+    }
+
     @Test func roundedIntHandlesEveryDouble() {
         #expect(SafeNumerics.roundedInt(.nan, clampedTo: 1...10) == 1)
         #expect(SafeNumerics.roundedInt(.infinity, clampedTo: 1...10) == 10)

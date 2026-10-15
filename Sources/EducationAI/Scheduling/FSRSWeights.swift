@@ -17,6 +17,14 @@ public enum FSRSWeights {
     /// The smallest stability the scheduler produces, in days.
     public static let minimumStability = 0.001
 
+    /// The largest stability the scheduler produces, in days.
+    ///
+    /// No review history comes near it (the `py-fsrs` reference histories in the tests stay under
+    /// 400,000 days), but a stored state can hold any finite number. Without a ceiling a stability
+    /// near `Double.greatestFiniteMagnitude` grows to infinity in the next review, and the state
+    /// after it could not be reviewed again. At this size every formula stays finite.
+    public static let maximumStability = 1e10
+
     /// The range of difficulty values.
     public static let difficultyRange: ClosedRange<Double> = 1...10
 

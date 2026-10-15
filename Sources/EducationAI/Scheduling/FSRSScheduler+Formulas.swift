@@ -23,7 +23,7 @@ extension FSRSScheduler {
     }
 
     func clampedStability(_ stability: Double) -> Double {
-        max(stability, FSRSWeights.minimumStability)
+        min(max(stability, FSRSWeights.minimumStability), FSRSWeights.maximumStability)
     }
 
     func initialStability(_ rating: Rating) -> Double {
