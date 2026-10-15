@@ -137,17 +137,31 @@ struct QuizTests {
     }
 
     @Test func largeSavedQuizzesResumeInLinearTime() throws {
-        let questions = try (0..<100_000).map { try QuizQuestion(id: "q\($0)", prompt: "Statement \($0)", kind: .trueFalse(answer: $0.isMultiple(of: 2))) }
-        var quiz = try QuizSession(questions: questions)
-        for question in questions.dropLast() {
-            try quiz.answer(.trueFalse(true), to: question.id)
+        func savedQuiz(questionCount: Int) throws -> (quiz: QuizSession, data: Data) {
+            let questions = try (0..<questionCount).map { try QuizQuestion(id: "q\($0)", prompt: "Statement \($0)", kind: .trueFalse(answer: $0.isMultiple(of: 2))) }
+            var quiz = try QuizSession(questions: questions)
+            for question in questions.dropLast() {
+                try quiz.answer(.trueFalse(true), to: question.id)
+            }
+            return (quiz, try JSONEncoder().encode(quiz))
         }
-        let data = try JSONEncoder().encode(quiz)
-        let start = Date()
-        let resumed = try JSONDecoder().decode(QuizSession.self, from: data)
-        // Finding each saved answer's question by scanning the list made this quadratic: about 20 s.
-        #expect(Date().timeIntervalSince(start) < 5)
-        #expect(resumed == quiz)
+        func secondsToResume(_ data: Data) throws -> Double {
+            let start = Date()
+            _ = try JSONDecoder().decode(QuizSession.self, from: data)
+            return Date().timeIntervalSince(start)
+        }
+
+        let small = try savedQuiz(questionCount: 25_000)
+        let large = try savedQuiz(questionCount: 100_000)
+        let smallSeconds = try secondsToResume(small.data)
+        let largeSeconds = try secondsToResume(large.data)
+        // Finding each saved answer's question by scanning the list made this quadratic. Four times the
+        // questions then takes about 16 times as long instead of about 4; a ratio keeps the check
+        // independent of how slow the machine or simulator is.
+        #expect(largeSeconds < smallSeconds * 10)
+
+        let resumed = try JSONDecoder().decode(QuizSession.self, from: large.data)
+        #expect(resumed == large.quiz)
         #expect(resumed.currentQuestion?.id == "q99999")
         #expect(resumed.correctCount == 50_000)
     }
