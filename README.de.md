@@ -1,4 +1,4 @@
-<!-- i18n-source: README.md@2f8cac2867c7ebd91d28e6f7b3782064f0af9658 status=reviewed -->
+<!-- i18n-source: README.md@f9244ae8b5ee36d676748f903909a5d507c7a923 status=reviewed -->
 <!-- brand:start -->
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-de-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-de-light.svg"><img src="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-de-light.svg" alt="EducationAI: Verteilte Wiederholung mit FSRS-6 und SM-2, Quizze, adaptive Schwierigkeit und Lernserien für Swift-Apps."></picture></p>
@@ -39,7 +39,7 @@ Ein Swift-Paket mit der Lernlogik einer Karteikarten- oder Lern-App. `FSRSSchedu
 - **Sicher bei gespeicherten Daten** — Zustände, die aus einer Datei oder einer Datenbank zurückgelesen werden, werden vor der Verwendung geprüft. NaN, unendliche oder negative Werte lösen einen Fehler aus, statt abzustürzen, Zähler bleiben bei `Int.max` stehen, und ein gespeichertes Quiz wird beim Laden erneut bewertet.
 - **Faire getippte Antworten** — `AnswerMatcher` ignoriert Groß- und Kleinschreibung, Akzente, Zeichenbreite und Satzzeichen, ohne von der Gerätesprache abzuhängen, verzeiht Tippfehler abhängig von der Antwortlänge und arbeitet proportional zur Länge der Antwort, selbst bei böswilliger Eingabe.
 - **Alles rund um den Scheduler** — eine Lernwarteschlange mit Tageslimits, SM-2 und seine Migration zu FSRS, aus Karten erzeugte Multiple-Choice- und Tippquizze, Antworthinweise, ein Schwierigkeitsanpasser, eine Prognose pro Tag, Behaltensstatistiken und Serien in der Zeitzone der lernenden Person.
-- **Getestet** — 124 Tests, die auf macOS und in einem iOS-Simulator laufen, einschließlich der README-Beispiele.
+- **Getestet** — 127 Tests, die auf macOS und in einem iOS-Simulator laufen, einschließlich der README-Beispiele.
 
 ## Schnellstart
 

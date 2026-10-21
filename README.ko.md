@@ -1,4 +1,4 @@
-<!-- i18n-source: README.md@2f8cac2867c7ebd91d28e6f7b3782064f0af9658 status=reviewed -->
+<!-- i18n-source: README.md@f9244ae8b5ee36d676748f903909a5d507c7a923 status=reviewed -->
 <!-- brand:start -->
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-ko-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-ko-light.svg"><img src="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-ko-light.svg" alt="EducationAI: Swift 앱을 위한 FSRS-6·SM-2 간격 반복, 퀴즈, 적응형 난이도, 연속 학습 기록."></picture></p>
@@ -39,7 +39,7 @@
 - **저장된 데이터에도 안전** — 파일이나 데이터베이스에서 다시 읽은 상태는 사용하기 전에 검사합니다. NaN, 무한대, 음수 값은 크래시 대신 오류를 던지고, 카운터는 `Int.max`에서 멈추며, 저장된 퀴즈는 불러올 때 다시 채점됩니다.
 - **공정한 입력형 답안 채점** — `AnswerMatcher`는 기기 언어와 상관없이 대소문자, 악센트, 문자 너비, 문장 부호를 무시하고, 답안 길이에 따라 오타를 허용하며, 악의적인 입력에서도 답안 길이에 비례하는 만큼만 작업합니다.
 - **스케줄러 주변의 모든 것** — 일일 한도가 있는 학습 큐, SM-2와 FSRS로의 이전, 카드에서 만드는 객관식·입력형 퀴즈, 답안 힌트, 난이도 조절기, 하루 단위 예측, 기억률 통계, 학습자의 시간대를 기준으로 한 연속 학습 기록.
-- **테스트됨** — README 예제를 포함한 124개의 테스트를 macOS와 iOS 시뮬레이터에서 실행합니다.
+- **테스트됨** — README 예제를 포함한 127개의 테스트를 macOS와 iOS 시뮬레이터에서 실행합니다.
 
 ## 빠른 시작
 

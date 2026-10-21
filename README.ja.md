@@ -1,4 +1,4 @@
-<!-- i18n-source: README.md@2f8cac2867c7ebd91d28e6f7b3782064f0af9658 status=reviewed -->
+<!-- i18n-source: README.md@f9244ae8b5ee36d676748f903909a5d507c7a923 status=reviewed -->
 <!-- brand:start -->
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-ja-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-ja-light.svg"><img src="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-ja-light.svg" alt="EducationAI: Swift アプリ向けの FSRS-6・SM-2 間隔反復、クイズ、難易度の自動調整、連続学習日数。"></picture></p>
@@ -39,7 +39,7 @@
 - **保存データに対して安全** — ファイルやデータベースから読み戻した状態は、使う前に検証されます。NaN、無限大、負の値はクラッシュせずにエラーを投げ、カウンタは `Int.max` で止まり、保存されたクイズは読み込み時に再び採点されます。
 - **公平な入力式の回答判定** — `AnswerMatcher` は、端末の言語に依存せず、大文字小文字、アクセント、文字幅、句読点を無視します。タイプミスは回答の長さに応じて許容し、悪意のある入力に対しても、処理量は回答の長さに比例します。
 - **スケジューラの周りのものがすべて** — 1 日の上限つきの学習キュー、SM-2 とその FSRS への移行、カードから作る選択式・入力式のクイズ、回答のヒント、難易度の調整、日ごとの予測、保持率の統計、学習者のタイムゾーンで数える連続学習日数。
-- **テスト済み** — README のサンプルを含む 124 件のテストを macOS と iOS シミュレータで実行しています。
+- **テスト済み** — README のサンプルを含む 127 件のテストを macOS と iOS シミュレータで実行しています。
 
 ## クイックスタート
 

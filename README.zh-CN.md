@@ -1,4 +1,4 @@
-<!-- i18n-source: README.md@2f8cac2867c7ebd91d28e6f7b3782064f0af9658 status=reviewed -->
+<!-- i18n-source: README.md@f9244ae8b5ee36d676748f903909a5d507c7a923 status=reviewed -->
 <!-- brand:start -->
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-zh-CN-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-zh-CN-light.svg"><img src="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-zh-CN-light.svg" alt="EducationAI: 为 Swift 应用提供 FSRS-6 和 SM-2 间隔重复、测验、自适应难度和连续学习天数。"></picture></p>
@@ -39,7 +39,7 @@
 - **对存储数据安全** — 从文件或数据库读回的状态在使用前会先检查。NaN、无穷大或负值会抛出错误而不是崩溃，计数器停在 `Int.max`，保存的测验在加载时会重新评分。
 - **公平的输入答案评分** — `AnswerMatcher` 忽略大小写、重音、字符宽度和标点，且不依赖设备语言；按答案长度容忍拼写错误，即使面对恶意输入，计算量也只与答案长度成正比。
 - **调度器周边的一切** — 带每日上限的学习队列、SM-2 及其向 FSRS 的迁移、由卡片生成的选择题和输入答案题测验、答案提示、难度调节器、按天的预测、记忆率统计，以及按学习者所在时区计算的连续学习天数。
-- **经过测试** — 124 个测试，在 macOS 和 iOS 模拟器上运行，其中包括 README 中的示例。
+- **经过测试** — 127 个测试，在 macOS 和 iOS 模拟器上运行，其中包括 README 中的示例。
 
 ## 快速开始
 

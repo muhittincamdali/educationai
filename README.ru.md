@@ -1,4 +1,4 @@
-<!-- i18n-source: README.md@2f8cac2867c7ebd91d28e6f7b3782064f0af9658 status=reviewed -->
+<!-- i18n-source: README.md@f9244ae8b5ee36d676748f903909a5d507c7a923 status=reviewed -->
 <!-- brand:start -->
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-ru-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-ru-light.svg"><img src="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-ru-light.svg" alt="EducationAI: Интервальное повторение FSRS-6 и SM-2, тесты, адаптивная сложность и серии занятий для Swift-приложений."></picture></p>
@@ -39,7 +39,7 @@ Swift-пакет с логикой обучения для приложения 
 - **Безопасно с сохранёнными данными** — состояния, прочитанные из файла или базы данных, проверяются перед использованием. NaN, бесконечные и отрицательные значения вызывают ошибку вместо падения, счётчики останавливаются на `Int.max`, а сохранённый тест при загрузке оценивается заново.
 - **Справедливая проверка введённых ответов** — `AnswerMatcher` не учитывает регистр, диакритические знаки, ширину символов и пунктуацию, не завися от языка устройства, прощает опечатки в зависимости от длины ответа и выполняет работу, пропорциональную длине ответа, даже при вредоносном вводе.
 - **Всё, что нужно вокруг планировщика** — очередь занятий с дневными лимитами, SM-2 и его перенос в FSRS, тесты с выбором ответа и с вводом ответа, составляемые из карточек, подсказки к ответам, регулятор сложности, прогноз по дням, статистика запоминаемости и серии занятий в часовом поясе ученика.
-- **Протестировано** — 124 теста, выполняемые на macOS и в симуляторе iOS, включая примеры из README.
+- **Протестировано** — 127 тестов, выполняемых на macOS и в симуляторе iOS, включая примеры из README.
 
 ## Быстрый старт
 

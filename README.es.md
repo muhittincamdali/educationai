@@ -1,4 +1,4 @@
-<!-- i18n-source: README.md@2f8cac2867c7ebd91d28e6f7b3782064f0af9658 status=reviewed -->
+<!-- i18n-source: README.md@f9244ae8b5ee36d676748f903909a5d507c7a923 status=reviewed -->
 <!-- brand:start -->
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-es-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-es-light.svg"><img src="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-es-light.svg" alt="EducationAI: Repetición espaciada con FSRS-6 y SM-2, cuestionarios, dificultad adaptativa y rachas para apps en Swift."></picture></p>
@@ -39,7 +39,7 @@ Un paquete de Swift con la lógica de aprendizaje de una app de tarjetas o de es
 - **Seguro con los datos guardados** — los estados que se leen de un archivo o de una base de datos se comprueban antes de usarlos. Los valores NaN, infinitos o negativos lanzan un error en lugar de bloquear la app, los contadores se detienen en `Int.max` y un cuestionario guardado se vuelve a calificar al cargarlo.
 - **Respuestas escritas justas** — `AnswerMatcher` ignora mayúsculas, acentos, anchura de caracteres y puntuación sin depender del idioma del dispositivo, perdona las erratas según la longitud de la respuesta y hace un trabajo proporcional a esa longitud, incluso con entradas hostiles.
 - **Todo lo que rodea al programador** — una cola de estudio con límites diarios, SM-2 y su migración a FSRS, cuestionarios de opción múltiple y de respuesta escrita creados a partir de las tarjetas, pistas para las respuestas, un ajustador de dificultad, una previsión por día, estadísticas de retención y rachas en la zona horaria del estudiante.
-- **Probado** — 124 pruebas, ejecutadas en macOS y en un simulador de iOS, incluidos los ejemplos del README.
+- **Probado** — 127 pruebas, ejecutadas en macOS y en un simulador de iOS, incluidos los ejemplos del README.
 
 ## Inicio rápido
 
