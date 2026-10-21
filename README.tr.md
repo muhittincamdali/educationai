@@ -1,4 +1,4 @@
-<!-- i18n-source: README.md@f9244ae8b5ee36d676748f903909a5d507c7a923 status=reviewed -->
+<!-- i18n-source: README.md@7e5d2498de0a83ef497d3257da5bd07dce0afcac status=reviewed -->
 <!-- brand:start -->
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-tr-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-tr-light.svg"><img src="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-tr-light.svg" alt="EducationAI: Swift uygulamaları için FSRS-6 ve SM-2 ile aralıklı tekrar, sınavlar, uyarlanabilir zorluk ve çalışma serileri."></picture></p>
