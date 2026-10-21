@@ -145,10 +145,16 @@ struct QuizTests {
             }
             return (quiz, try JSONEncoder().encode(quiz))
         }
+        // The fastest of a few runs ignores a pause of the machine in one of them (a busy CI runner or
+        // simulator), which a single measurement of each size did not.
         func secondsToResume(_ data: Data) throws -> Double {
-            let start = Date()
-            _ = try JSONDecoder().decode(QuizSession.self, from: data)
-            return Date().timeIntervalSince(start)
+            var fastest = Double.infinity
+            for _ in 0..<3 {
+                let start = Date()
+                _ = try JSONDecoder().decode(QuizSession.self, from: data)
+                fastest = min(fastest, Date().timeIntervalSince(start))
+            }
+            return fastest
         }
 
         let small = try savedQuiz(questionCount: 25_000)
