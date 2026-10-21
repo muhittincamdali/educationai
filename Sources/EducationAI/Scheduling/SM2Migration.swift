@@ -32,10 +32,9 @@ extension ReviewState {
             interval * scheduler.factor / (pow(sm2Retention, 1 / scheduler.decay) - 1)
         )
         let growth = exp(weights[8]) * pow(stability, -weights[9]) * expm1((1 - sm2Retention) * weights[10])
+        // `growth` is positive and finite for valid weights, so this is finite or, for an easiness
+        // factor near `Double.greatestFiniteMagnitude`, minus infinity, which clamps to 1 (easiest).
         let difficulty = 11 - (sm2.easeFactor - 1) / growth
-        guard stability.isFinite, difficulty.isFinite else {
-            throw SchedulingError.invalidState("the SM-2 values give no finite FSRS memory state")
-        }
         let lastReview = sm2.lastReview ?? sm2.due.addingTimeInterval(-interval * .secondsPerDay)
         self.init(
             phase: .review, step: nil,

@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- `ReviewState(migrating:scheduler:sm2Retention:)` no longer throws for an SM-2 state with an
+  easiness factor near `Double.greatestFiniteMagnitude`, which `SM2Scheduler` reviews without
+  complaint. The difficulty formula overflows to minus infinity there; it is now clamped to the
+  easiest difficulty, 1, like every other out-of-range difficulty.
+
 ## [2.0.0] - 2026-10-15
 
 A new package with a new API: the learning logic of a flashcard or study app, centered on an
