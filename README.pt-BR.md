@@ -1,4 +1,4 @@
-<!-- i18n-source: README.md@2f8cac2867c7ebd91d28e6f7b3782064f0af9658 status=reviewed -->
+<!-- i18n-source: README.md@f9244ae8b5ee36d676748f903909a5d507c7a923 status=reviewed -->
 <!-- brand:start -->
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-pt-BR-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-pt-BR-light.svg"><img src="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-pt-BR-light.svg" alt="EducationAI: Repetição espaçada com FSRS-6 e SM-2, quizzes, dificuldade adaptativa e sequências para apps em Swift."></picture></p>
@@ -39,7 +39,7 @@ Um pacote Swift com a lógica de aprendizado de um app de flashcards ou de estud
 - **Seguro com dados salvos** — os estados lidos de um arquivo ou de um banco de dados são verificados antes do uso. Valores NaN, infinitos ou negativos lançam um erro em vez de travar o app, os contadores param em `Int.max` e um quiz salvo é corrigido de novo quando é carregado.
 - **Respostas digitadas tratadas com justiça** — o `AnswerMatcher` ignora maiúsculas e minúsculas, acentos, largura dos caracteres e pontuação sem depender do idioma do dispositivo, perdoa erros de digitação conforme o tamanho da resposta e faz um trabalho proporcional a esse tamanho, mesmo com entradas hostis.
 - **Tudo em volta do agendador** — uma fila de estudo com limites diários, o SM-2 e sua migração para o FSRS, quizzes de múltipla escolha e de resposta digitada criados a partir dos cartões, dicas de resposta, um ajustador de dificuldade, uma previsão por dia, estatísticas de retenção e sequências no fuso horário do aluno.
-- **Testado** — 124 testes, executados no macOS e em um simulador de iOS, incluindo os exemplos do README.
+- **Testado** — 127 testes, executados no macOS e em um simulador de iOS, incluindo os exemplos do README.
 
 ## Início rápido
 

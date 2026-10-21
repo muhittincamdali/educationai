@@ -70,6 +70,13 @@ final class DeckStore {
         apply(outcome, to: cardID)
     }
 
+    /// Makes a card new again, keeping its review and lapse counts; its reviews stay in the log.
+    func reset(cardID: String) {
+        guard let index = cards.firstIndex(where: { $0.id == cardID }) else { return }
+        cards[index].review = cards[index].review.reset(dueAt: now, keepingCounts: true)
+        save()
+    }
+
     func retrievability(of card: Flashcard) -> Double {
         scheduler.retrievability(of: card.review, at: now)
     }

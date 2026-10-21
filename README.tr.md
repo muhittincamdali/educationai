@@ -1,4 +1,4 @@
-<!-- i18n-source: README.md@2f8cac2867c7ebd91d28e6f7b3782064f0af9658 status=reviewed -->
+<!-- i18n-source: README.md@f9244ae8b5ee36d676748f903909a5d507c7a923 status=reviewed -->
 <!-- brand:start -->
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-tr-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-tr-light.svg"><img src="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-tr-light.svg" alt="EducationAI: Swift uygulamaları için FSRS-6 ve SM-2 ile aralıklı tekrar, sınavlar, uyarlanabilir zorluk ve çalışma serileri."></picture></p>
@@ -63,7 +63,7 @@ eşzamanlılığı (strict concurrency) için yazılmıştır.
   ipuçları, bir zorluk ayarlayıcı, günlük tahmin, hatırlama istatistikleri ve öğrencinin saat
   dilimine göre seriler.
 - **Test edilmiş** — macOS'ta ve bir iOS simülatöründe çalıştırılan, README örneklerini de
-  kapsayan 124 test.
+  kapsayan 127 test.
 
 ## Hızlı başlangıç
 

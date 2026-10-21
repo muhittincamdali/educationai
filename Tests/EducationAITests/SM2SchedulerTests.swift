@@ -140,4 +140,16 @@ struct SM2SchedulerTests {
         _ = try scheduler.review(state, rating: .good, at: start)
         #expect(state.difficulty.map(FSRSWeights.difficultyRange.contains) == true)
     }
+
+    // Near the largest Double the difficulty formula overflows to minus infinity. SM-2 reviews such
+    // a state, so migrating it must work too, as the easiest difficulty.
+    @Test(arguments: [1e307, .greatestFiniteMagnitude])
+    func everyEaseFactorSM2AcceptsCanBeMigrated(easeFactor: Double) throws {
+        let scheduler = try FSRSScheduler()
+        let sm2 = SM2State(easeFactor: easeFactor, repetitions: 9, interval: .max, due: start, lastReview: start)
+        _ = try SM2Scheduler().review(sm2, quality: 4, at: start)
+        let state = try ReviewState(migrating: sm2, scheduler: scheduler)
+        #expect(state.difficulty == FSRSWeights.difficultyRange.lowerBound)
+        #expect(try scheduler.review(state, rating: .good, at: start).state.phase == .review)
+    }
 }

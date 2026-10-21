@@ -71,11 +71,36 @@ public struct ReviewState: Codable, Sendable, Hashable {
         self.lapseCount = lapseCount
     }
 
-    /// Whether the item has never been reviewed.
+    /// Whether the item has never been reviewed, or was reset with ``reset(dueAt:keepingCounts:)``.
     public var isNew: Bool { lastReview == nil }
 
     /// Whether the item is due at `date`.
     public func isDue(at date: Date = .now) -> Bool { due <= date }
+
+    /// The item as a new one again, for a "forget" or "reset" action when it is to be learned
+    /// from scratch.
+    ///
+    /// The memory state is dropped, so the next review starts the learning steps exactly as for a
+    /// card never seen, and ``StudyQueue`` counts the item as new. To undo a single review
+    /// instead, store the state from before it again: states are values, so the old one is
+    /// still the right one.
+    ///
+    /// ```swift
+    /// card.review = card.review.reset(dueAt: .now)
+    /// ```
+    ///
+    /// - Parameters:
+    ///   - due: When the item is due again. Defaults to now.
+    ///   - keepingCounts: Whether ``reviewCount`` and ``lapseCount`` keep their values, for
+    ///     statistics. By default both start again at 0.
+    public func reset(dueAt due: Date = .now, keepingCounts: Bool = false) -> ReviewState {
+        var state = ReviewState(due: due)
+        if keepingCounts {
+            state.reviewCount = reviewCount
+            state.lapseCount = lapseCount
+        }
+        return state
+    }
 }
 
 /// A record of one review, kept to compute statistics or to replay a history with other settings.

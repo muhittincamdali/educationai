@@ -31,9 +31,6 @@ exclude = [
   '^https?://api\.example\.com',
   # Pull request and comparison pages that only exist after a push.
   '^https://github\.com/[^/]+/[^/]+/compare/',
-  # Temporary: the design notes pages on muhittincamdali.com that the READMEs link to are not
-  # published yet. Remove this entry once both pages answer with 200.
-  '^https://muhittincamdali\.com/(en/)?open-source/educationai/$',
 ]
 
 # The READMEs link to this repository's own files on main (graphics in .github/brand, images in

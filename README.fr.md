@@ -1,4 +1,4 @@
-<!-- i18n-source: README.md@2f8cac2867c7ebd91d28e6f7b3782064f0af9658 status=reviewed -->
+<!-- i18n-source: README.md@f9244ae8b5ee36d676748f903909a5d507c7a923 status=reviewed -->
 <!-- brand:start -->
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-fr-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-fr-light.svg"><img src="https://raw.githubusercontent.com/muhittincamdali/educationai/main/.github/brand/banner-fr-light.svg" alt="EducationAI: Répétition espacée avec FSRS-6 et SM-2, quiz, difficulté adaptative et séries d'étude pour apps Swift."></picture></p>
@@ -39,7 +39,7 @@ Un package Swift qui contient la logique d’apprentissage d’une application d
 - **Sûr avec les données enregistrées** — les états relus depuis un fichier ou une base de données sont vérifiés avant utilisation. Les valeurs NaN, infinies ou négatives lèvent une erreur au lieu de planter, les compteurs s’arrêtent à `Int.max` et un quiz enregistré est de nouveau noté au chargement.
 - **Des réponses saisies traitées équitablement** — `AnswerMatcher` ignore la casse, les accents, la largeur des caractères et la ponctuation sans dépendre de la langue de l’appareil, tolère les fautes de frappe selon la longueur de la réponse et fait un travail proportionnel à cette longueur, même face à une entrée hostile.
 - **Tout ce qui entoure le planificateur** — une file d’étude avec des limites quotidiennes, SM-2 et sa migration vers FSRS, des quiz à choix multiples et à réponse saisie construits à partir des cartes, des indices de réponse, un ajusteur de difficulté, une prévision par jour, des statistiques de rétention et des séries dans le fuseau horaire de l’apprenant.
-- **Testé** — 124 tests, exécutés sur macOS et sur un simulateur iOS, y compris les exemples du README.
+- **Testé** — 127 tests, exécutés sur macOS et sur un simulateur iOS, y compris les exemples du README.
 
 ## Démarrage rapide
 

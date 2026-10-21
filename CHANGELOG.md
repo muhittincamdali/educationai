@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.1.0] - 2026-10-21
+
+### Added
+
+- `ReviewState.reset(dueAt:keepingCounts:)` turns an item into a new one again, for a "forget"
+  action: the next review starts the learning steps as for a card never seen. The review and
+  lapse counts can be kept for statistics. The "Scheduling reviews" article explains it and
+  how to undo a single review by keeping the previous state.
+
+### Fixed
+
+- `ReviewState(migrating:scheduler:sm2Retention:)` no longer throws for an SM-2 state with an
+  easiness factor near `Double.greatestFiniteMagnitude`, which `SM2Scheduler` reviews without
+  complaint. The difficulty formula overflows to minus infinity there; it is now clamped to the
+  easiest difficulty, 1, like every other out-of-range difficulty.
+
 ## [2.0.0] - 2026-10-15
 
 A new package with a new API: the learning logic of a flashcard or study app, centered on an
@@ -80,6 +96,7 @@ Because every public name changes, this release is a new major version.
 First tagged release: an `EducationAI` class with learning models and basic tests, depending on
 Alamofire, RxSwift, SnapKit and SDWebImage.
 
-[Unreleased]: https://github.com/muhittincamdali/educationai/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/muhittincamdali/educationai/compare/v2.1.0...HEAD
+[2.1.0]: https://github.com/muhittincamdali/educationai/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/muhittincamdali/educationai/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/muhittincamdali/educationai/releases/tag/v1.0.0
