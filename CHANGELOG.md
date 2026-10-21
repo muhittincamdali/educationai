@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `ReviewState.reset(dueAt:keepingCounts:)` turns an item into a new one again, for a "forget"
+  action: the next review starts the learning steps as for a card never seen. The review and
+  lapse counts can be kept for statistics. The "Scheduling reviews" article explains it and
+  how to undo a single review by keeping the previous state.
+
 ### Fixed
 
 - `ReviewState(migrating:scheduler:sm2Retention:)` no longer throws for an SM-2 state with an

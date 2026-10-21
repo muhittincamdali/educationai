@@ -67,6 +67,20 @@ Keep the ``ReviewLog`` of each review. After changing settings, ``FSRSScheduler/
 rebuilds an item's state as if the new settings had always been used; the same works for review
 histories imported from another app.
 
+### Reset an item or undo a review
+
+To learn an item from scratch, as Anki's **Forget** does, replace its state with
+``ReviewState/reset(dueAt:keepingCounts:)``. The memory state is dropped and the next review
+starts the learning steps as for a new item; pass `keepingCounts: true` to keep the review and
+lapse counts for statistics.
+
+```swift
+card.review = card.review.reset(dueAt: .now)
+```
+
+Undoing a single review needs no special call: a review returns a new state and leaves the old
+one unchanged, so keep the state from before the review and store it again.
+
 ### Keep SM-2 data
 
 Apps that already store SM-2 values (easiness factor, repetitions, interval) can keep using them

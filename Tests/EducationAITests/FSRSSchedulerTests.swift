@@ -252,6 +252,38 @@ struct FSRSSchedulerTests {
         #expect(!state.isDue(at: state.due.addingTimeInterval(-1)))
     }
 
+    /// A learned item with a lapse, reviewed at `start` and then on each due date.
+    func learnedItemWithALapse(_ scheduler: FSRSScheduler) throws -> ReviewState {
+        var state = ReviewState(due: start)
+        for rating: Rating in [.good, .good, .good, .again, .good, .good] {
+            state = try scheduler.review(state, rating: rating, at: state.due).state
+        }
+        return state
+    }
+
+    @Test func resetItemIsReviewedExactlyLikeANewOne() throws {
+        let scheduler = try FSRSScheduler(fuzzEnabled: false)
+        let learned = try learnedItemWithALapse(scheduler)
+        #expect(learned.phase == .review && learned.lapseCount == 1)
+
+        let date = learned.due
+        let reset = learned.reset(dueAt: date)
+        #expect(reset == ReviewState(due: date))
+        #expect(reset.isNew)
+        #expect(StudyQueue.states(from: [reset], at: date, newLimit: 0).isEmpty)
+        #expect(try scheduler.review(reset, rating: .good, at: date) == scheduler.review(ReviewState(due: date), rating: .good, at: date))
+    }
+
+    @Test func resetKeepingCountsKeepsOnlyTheCounts() throws {
+        let scheduler = try FSRSScheduler(fuzzEnabled: false)
+        let learned = try learnedItemWithALapse(scheduler)
+        let reset = learned.reset(dueAt: start, keepingCounts: true)
+        #expect(reset.reviewCount == learned.reviewCount)
+        #expect(reset.lapseCount == learned.lapseCount)
+        #expect((reset.phase, reset.step, reset.stability, reset.difficulty, reset.lastReview) == (.learning, 0, nil, nil, nil))
+        #expect(try scheduler.review(reset, rating: .again, at: start).state.reviewCount == learned.reviewCount + 1)
+    }
+
     @Test func defaultSchedulerHasTheDocumentedSettings() throws {
         let scheduler = FSRSScheduler.default
         #expect(scheduler == (try FSRSScheduler()))
