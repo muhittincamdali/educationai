@@ -98,6 +98,11 @@ struct DeckListView: View {
                         }
                     }
                 }
+                .swipeActions {
+                    if !card.review.isNew {
+                        Button("Reset", role: .destructive) { store.reset(cardID: card.id) }
+                    }
+                }
             }
             .navigationTitle("Deck")
         }
