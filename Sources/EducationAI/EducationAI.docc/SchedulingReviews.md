@@ -72,7 +72,8 @@ histories imported from another app.
 To learn an item from scratch, as Anki's **Forget** does, replace its state with
 ``ReviewState/reset(dueAt:keepingCounts:)``. The memory state is dropped and the next review
 starts the learning steps as for a new item; pass `keepingCounts: true` to keep the review and
-lapse counts for statistics.
+lapse counts for statistics. A reset leaves the item's logs alone, so replaying the whole log
+would bring the old state back; replay only the reviews made after the reset.
 
 ```swift
 card.review = card.review.reset(dueAt: .now)
